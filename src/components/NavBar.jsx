@@ -7,7 +7,7 @@ const NavBar = () => {
   const handleTabClick = (tab) => {
     setActiveTab(tab);
 
-    if (tab === "adoptt") {
+    if (tab === "adopt") {
       setSubTab("findAPet");
     } else if (tab === "rehome") {
       setSubTab("howToRehome");
@@ -77,7 +77,7 @@ const NavBar = () => {
         )}
       </div>
       <div className="tab-content">
-        {/* Render content based on activeTab and subTab */}
+        {activeTab === "rehome" ? <h1>happy for you</h1> : null}
       </div>
     </div>
   );

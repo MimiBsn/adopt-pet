@@ -1,30 +1,24 @@
+import React from "react";
+
 const Footer = () => {
-  const [bottomPosition, setBottomPosition] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const footerHeight = document.getElementById("footer").offsetHeight;
-      const windowHeight = window.innerHeight;
-      const scrollY = window.scrollY;
-      const documentHeight = document.documentElement.scrollHeight;
-
-      if (windowHeight + scrollY >= documentHeight - footerHeight) {
-        setBottomPosition(0);
-      } else {
-        setBottomPosition(-footerHeight);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
-    <footer id="footer" className="footer" style={{ bottom: bottomPosition }}>
-      {/* Footer content goes here */}
+    <footer className="footer">
+      <div className="footer-content">
+        <div className="footer-signup">
+          <h3>Sign up for our newsletter</h3>
+          <form action="#">
+            <input type="email" placeholder="Your email address" />
+            <button>Send</button>
+          </form>
+        </div>
+        <div className="footer-info">
+          <p>Adopt a Pet © 2024</p>
+        </div>
+      </div>
+      <div className="footer-sponsors">
+        <p>Special thanks to our sponsors</p>
+        <div className="sponsor-logos">{/* logooo*/}</div>
+      </div>
     </footer>
   );
 };
