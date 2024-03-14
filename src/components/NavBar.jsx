@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import AddPetForm from "../components/AddPetForm";
 
 const NavBar = () => {
   const [activeTab, setActiveTab] = useState("adopt");
@@ -77,7 +78,7 @@ const NavBar = () => {
         )}
       </div>
       <div className="tab-content">
-        {activeTab === "rehome" ? <h1>happy for you</h1> : null}
+        {activeTab === "rehome" ? <AddPetForm /> : null}
       </div>
     </div>
   );

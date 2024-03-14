@@ -79,6 +79,11 @@ nav ul li.active {
   padding: 0;
 }
 
+.tab-content {
+  background-color: white;
+  margin: 0px;
+}
+
 .sub-tabs ul li {
   display: inline-block;
   margin-right: 20px;
@@ -93,16 +98,17 @@ nav ul li.active {
   background-color: #2b7775;
   color: #fff;
   padding: 20px;
+  z-index: 9999; /* Ensure footer is above other content */
 }
 
 .footer-content {
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
 }
 
 .footer-signup {
-  margin-right: 20px;
+  display: flex;
+  flex-direction: row;
 }
 
 .footer-signup h3 {
@@ -134,21 +140,25 @@ nav ul li.active {
   margin: 0;
 }
 
-.footer-info p {
-  margin: 0;
-  font-size: 14px;
+/**************** add pet page style ////////////////////*/
+.add-pet-form-container {
+  max-width: 400px;
+  margin: 80px auto;
+  background-color: #a6cdc3;
+  padding: 20px;
+  border-radius: 8px;
+  overflow-y: auto; /* Add scrollbar when content overflows */
+  max-height: calc(100vh - 300px); /* Adjust the height */
 }
 
-.footer-sponsors {
-  margin-top: 20px;
-}
-
-.sponsor-logos {
-  display: flex;
-  align-items: center;
-}
-
-.sponsor-logos img {
-  height: 40px;
+.form-group label,
+.form-group input,
+.form-group select {
+  display: inline-block;
+  vertical-align: middle;
   margin-right: 10px;
+}
+
+.form-group label {
+  color: black;
 }
