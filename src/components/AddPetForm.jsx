@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const AddPetForm = () => {
   const [petName, setPetName] = useState("");
   const [age, setAge] = useState("");
   const [sex, setSex] = useState("");
   const [size, setSize] = useState("");
-  const [breed, setBreed] = useState("");
+  const [primaryBreed, setPrimaryBreed] = useState("");
   const [thumbnail, setThumbnail] = useState(null);
   const [images, setImages] = useState([]);
   const [purebred, setPurebred] = useState("");
@@ -34,8 +35,8 @@ const AddPetForm = () => {
       case "size":
         setSize(selectedIndex);
         break;
-      case "breed":
-        setBreed(value);
+      case "primaryBreed":
+        setPrimaryBreed(value);
         break;
       case "thumbnail":
         setThumbnail(e.target.files[0]);
@@ -80,50 +81,50 @@ const AddPetForm = () => {
 
     // Create an object to hold the form data
     const petData = {
-      petName: petName,
-      age: age,
       sex: sex,
-      size: size,
-      breed: breed,
-      thumbnail: thumbnail,
-      images: images,
       purebred: purebred,
-      petAge: petAge,
+      pet_age: petAge,
+      size: size,
       country: country,
       city: city,
-      actQuickly: actQuickly,
-      hairLength: hairLength,
+      act_quickly: actQuickly,
+      hair_length: hairLength,
       species: species,
+      pet_name: petName,
       color: color,
-      specialNeeds: specialNeeds,
+      age: age,
+      special_needs: specialNeeds,
+      primary_breed: primaryBreed,
+      thumbnail: thumbnail,
+      images: images,
     };
 
     console.log({ petData });
-    // try {
-    //   const response = await axios.post("http://localhost:5001/pets", petData);
+    try {
+      const response = await axios.post("http://localhost:5001/pets", petData);
 
-    //   console.log("Pet added successfully:", response.data);
-    // } catch (error) {
-    //   console.error("There was a problem adding the pet:", error);
-    // }
+      console.log("Pet added successfully:", response.data);
+    } catch (error) {
+      console.error("There was a problem adding the pet:", error);
+    }
 
     // Clear the form
-    // setPetName("");
-    // setAge("");
-    // setSex("");
-    // setSize("");
-    // setBreed("");
-    // setThumbnail(null);
-    // setImages([]);
-    // setPurebred("");
-    // setPetAge("");
-    // setCountry("");
-    // setCity("");
-    // setActQuickly("");
-    // setHairLength("");
-    // setSpecies("");
-    // setColor("");
-    // setSpecialNeeds("");
+    setPetName("");
+    setAge("");
+    setSex("");
+    setSize("");
+    setPrimaryBreed("");
+    setThumbnail(null);
+    setImages([]);
+    setPurebred("");
+    setPetAge("");
+    setCountry("");
+    setCity("");
+    setActQuickly("");
+    setHairLength("");
+    setSpecies("");
+    setColor("");
+    setSpecialNeeds("");
   };
 
   return (
@@ -213,19 +214,19 @@ const AddPetForm = () => {
           </select>
         </div>
         <div className="form-group">
-          <label>Primary Breed:</label>
+          <label>primaryBreed:</label>
           <input
             type="text"
-            id="breed"
-            name="breed"
-            value={breed}
+            id="primaryBreed"
+            name="primaryBreed"
+            value={primaryBreed}
             onChange={handleChange}
             required
             className="form-input"
           />
         </div>
         <div className="form-group">
-          <label>Thumbnail:</label>
+          <label>Profile Image:</label>
           <input
             type="file"
             id="thumbnail"
@@ -237,7 +238,7 @@ const AddPetForm = () => {
           />
         </div>
         <div className="form-group">
-          <label>Images:</label>
+          <label>Other Images:</label>
           <input
             type="file"
             id="images"
