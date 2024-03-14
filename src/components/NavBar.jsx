@@ -7,7 +7,7 @@ const NavBar = () => {
   const handleTabClick = (tab) => {
     setActiveTab(tab);
 
-    if (tab === "adopt") {
+    if (tab === "adoptt") {
       setSubTab("findAPet");
     } else if (tab === "rehome") {
       setSubTab("howToRehome");
