@@ -40,3 +40,47 @@
 .read-the-docs {
   color: #888;
 }
+
+/********* navbar *****************/
+.navbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #2b7775;
+  color: #fff;
+  padding: 10px 20px;
+  font-family: Arial, sans-serif;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+nav ul li.active {
+  font-weight: bold;
+}
+
+.sub-tabs {
+  margin-top: 10px;
+}
+
+.sub-tabs ul {
+  list-style-type: none;
+  margin: 20px 0; /* Adjust the margin top and bottom */
+  padding: 0;
+}
+
+.sub-tabs ul li {
+  display: inline-block;
+  margin-right: 20px;
+}
