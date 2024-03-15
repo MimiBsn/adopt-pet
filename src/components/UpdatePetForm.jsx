@@ -19,8 +19,8 @@ const UpdatePetForm = () => {
   const [species, setSpecies] = useState("");
   const [color, setColor] = useState("");
   const [specialNeeds, setSpecialNeeds] = useState("");
-  //  const { petId } = useParams();
-  let petId = "";
+  const { petId } = useParams();
+
   // const nav = useNavigate();
 
   const handleThumbnailChange = (e) => {
@@ -45,7 +45,6 @@ const UpdatePetForm = () => {
 
   useEffect(() => {
     const getUpdateProduct = async () => {
-      petId = 14;
       const updatedPet = await axios
         .get(`http://localhost:5001/pets/${petId}`)
         .catch((error) => {

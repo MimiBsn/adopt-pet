@@ -1,85 +1,47 @@
 import React, { useState } from "react";
-import AddPetForm from "../components/AddPetForm";
+import { Link } from "react-router-dom"; // Import Link for navigation
+import logo from "../assets/logo.jpg";
 
 const NavBar = () => {
   const [activeTab, setActiveTab] = useState("adopt");
-  const [subTab, setSubTab] = useState("findAPet");
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
-
-    if (tab === "adopt") {
-      setSubTab("findAPet");
-    } else if (tab === "rehome") {
-      setSubTab("howToRehome");
-    }
-  };
-
-  const handleSubTabClick = (tab) => {
-    setSubTab(tab);
   };
 
   return (
     <div className="navbar-container">
+      <div className="logo-container">
+        <img src={logo} alt="Logo" />
+      </div>
       <nav>
         <ul>
+          <li
+            className={activeTab === "findPet" ? "active" : ""}
+            onClick={() => handleTabClick("findPet")}
+          >
+            <Link to="/find-pet">Find Pet</Link>
+          </li>
           <li
             className={activeTab === "adopt" ? "active" : ""}
             onClick={() => handleTabClick("adopt")}
           >
-            Adopt
+            <Link to="/adopt">Adopt a Pet</Link>
+          </li>
+          <li
+            className={activeTab === "petAdvice" ? "active" : ""}
+            onClick={() => handleTabClick("petAdvice")}
+          >
+            <Link to="/pet-advice">Pet Advice</Link>
           </li>
           <li
             className={activeTab === "rehome" ? "active" : ""}
             onClick={() => handleTabClick("rehome")}
           >
-            Rehome
+            <Link to="/rehome">Rehome</Link>
           </li>
         </ul>
       </nav>
-      <div className="sub-tabs">
-        {activeTab === "adopt" && (
-          <ul>
-            <li
-              className={subTab === "findAPet" ? "active" : ""}
-              onClick={() => handleSubTabClick("findAPet")}
-            >
-              Find a Pet
-            </li>
-            <li
-              className={subTab === "howToAdopt" ? "active" : ""}
-              onClick={() => handleSubTabClick("howToAdopt")}
-            >
-              How to Adopt
-            </li>
-            <li
-              className={subTab === "petAdvice" ? "active" : ""}
-              onClick={() => handleSubTabClick("petAdvice")}
-            >
-              Pet Advice
-            </li>
-          </ul>
-        )}
-        {activeTab === "rehome" && (
-          <ul>
-            <li
-              className={subTab === "howToRehome" ? "active" : ""}
-              onClick={() => handleSubTabClick("howToRehome")}
-            >
-              How to Rehome
-            </li>
-            <li
-              className={subTab === "rehomeAdvice" ? "active" : ""}
-              onClick={() => handleSubTabClick("rehomeAdvice")}
-            >
-              Rehome Advice
-            </li>
-          </ul>
-        )}
-      </div>
-      <div className="tab-content">
-        {activeTab === "rehome" ? <AddPetForm /> : null}
-      </div>
     </div>
   );
 };

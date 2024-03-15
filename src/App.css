@@ -50,49 +50,44 @@
   background-color: #2b7775;
   color: #fff;
   padding: 10px 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.logo-container img {
+  height: 40px;
+  width: auto;
+  border-radius: 50%;
+  margin-right: 200px;
+  margin-left: 100px;
 }
 
 nav ul {
+  display: flex;
+  flex-direction: row;
   list-style-type: none;
   margin: 0;
   padding: 0;
+  justify-content: space-between;
 }
 
 nav ul li {
   display: inline-block;
-  margin-right: 20px;
+  margin-right: 120px; /* Adjust this value for desired spacing */
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
+  color: #fff;
+}
+nav ul li a {
+  color: white; /* Set the color of the icon to white */
 }
 
+nav ul li a:hover {
+  color: orange;
+}
 nav ul li.active {
   font-weight: bold;
-}
-
-.sub-tabs {
-  margin-top: 10px;
-}
-
-.sub-tabs ul {
-  list-style-type: none;
-  margin: 0; /* Remove margin to align the sub-tabs properly */
-  padding: 0;
-}
-
-.tab-content {
-  background-color: white;
-  margin: 0px;
-}
-
-.sub-tabs ul li {
-  display: inline-block;
-  margin-right: 20px;
-}
-
-.logo-image {
-  width: 50px; /* Adjust as needed */
-  height: 50px; /* Adjust as needed */
-  border-radius: 50%;
 }
 
 /******** footer ///////////////*******/
@@ -103,58 +98,66 @@ nav ul li.active {
   width: 100%;
   background-color: #2b7775;
   color: #fff;
-  padding: 20px;
-  z-index: 9999; /* Ensure footer is above other content */
+  padding: 5px;
 }
 
 .footer-content {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .footer-signup {
-  display: flex;
-  flex-direction: row;
+  text-align: left;
+  margin-left: 20px;
 }
 
 .footer-signup h3 {
   margin-bottom: 10px;
-  font-size: 18px;
 }
 
 .footer-signup form {
   display: flex;
-  align-items: center;
 }
 
-.footer-signup input {
+.footer-signup input[type="email"] {
   padding: 8px;
   margin-right: 10px;
-  border: none;
-  border-radius: 5px;
 }
 
 .footer-signup button {
-  padding: 8px 20px;
+  padding: 8px 15px;
   background-color: #fff;
   color: #2b7775;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
 }
+
 .footer-info {
+  display: flex;
+  align-items: center;
+  text-align: right;
+  margin-right: 20px;
+}
+
+.footer-text {
   margin: 0;
 }
 
+.sponsor-logos {
+  /* Style your sponsor logos here */
+}
+
 /**************** add pet page style ////////////////////*/
+
 .add-pet-form-container {
   max-width: 400px;
-  margin: 80px auto;
+  margin: 0px;
   background-color: #a6cdc3;
-  padding: 20px;
-  border-radius: 8px;
-  overflow-y: auto; /* Add scrollbar when content overflows */
-  max-height: calc(100vh - 300px); /* Adjust the height */
+  padding: 100px;
+  border-radius: 20px;
+  overflow-y: auto;
+  max-height: calc(100vh - 100px); /* Adjust the height */
 }
 
 .form-group label,

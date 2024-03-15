@@ -12,8 +12,8 @@ const Footer = () => {
           </form>
         </div>
         <div className="footer-info">
-          <p>Adopt a Pet © 2024</p>
-          <div className="sponsor-logos">{/* logooo*/}</div>
+          <p className="footer-text">All rights reserved &copy; 2024</p>
+          {/* You can add your sponsor logos here */}
         </div>
       </div>
     </footer>

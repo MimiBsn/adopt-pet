@@ -417,10 +417,10 @@ const AddPetForm = () => {
               className="form-input"
             >
               <option value="">Select City</option>
-              <option value="1">Paris</option>
-              <option value="2">Lyon</option>
-              <option value="3">Marseille</option>
-              <option value="4">Bordeaux</option>
+              <option value="5">Paris</option>
+              <option value="6">Lyon</option>
+              <option value="7">Marseille</option>
+              <option value="8">Bordeaux</option>
             </select>
           </div>
         )}
