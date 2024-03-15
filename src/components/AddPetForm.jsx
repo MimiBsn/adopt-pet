@@ -75,7 +75,7 @@ const AddPetForm = () => {
         setHairLength(value);
         break;
       case "species":
-        setSpecies(selectedIndex);
+        setSpecies(value);
         break;
       case "color":
         setColor(value);
@@ -341,9 +341,9 @@ const AddPetForm = () => {
             className="form-select"
           >
             <option value="">Select species</option>
-            <option value="1">Cat</option>
-            <option value="2">Dog</option>
-            <option value="3">Bird</option>
+            <option value="Cat">Cat</option>
+            <option value="Dog">Dog</option>
+            <option value="Bird">Bird</option>
           </select>
         </div>
         <div className="form-group">

@@ -89,6 +89,12 @@ nav ul li.active {
   margin-right: 20px;
 }
 
+.logo-image {
+  width: 50px; /* Adjust as needed */
+  height: 50px; /* Adjust as needed */
+  border-radius: 50%;
+}
+
 /******** footer ///////////////*******/
 .footer {
   position: fixed;
