@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const AddPetForm = () => {
@@ -7,8 +7,7 @@ const AddPetForm = () => {
   const [sex, setSex] = useState("");
   const [size, setSize] = useState("");
   const [primaryBreed, setPrimaryBreed] = useState("");
-  const [thumbnail, setThumbnail] = useState(null);
-  const [images, setImages] = useState([]);
+  const [thumbnail, setThumbnail] = useState("");
   const [purebred, setPurebred] = useState("");
   const [petAge, setPetAge] = useState("");
   const [country, setCountry] = useState("");
@@ -19,36 +18,49 @@ const AddPetForm = () => {
   const [color, setColor] = useState("");
   const [specialNeeds, setSpecialNeeds] = useState("");
 
+  const handleThumbnailChange = (e) => {
+    const formData = new FormData();
+    const file = e.target.files[0];
+    formData.append("file", file);
+    formData.append("upload_preset", "luxmtkpk");
+    const uploadImage = async () => {
+      try {
+        const response = await axios.post(
+          "https://api.cloudinary.com/v1_1/doceqzmuk/image/upload",
+          formData
+        );
+        console.log(response.data.url);
+        setThumbnail(response.data.url);
+      } catch (error) {
+        console.error("Error uploading image:", error);
+      }
+    };
+    uploadImage();
+  };
+
   const handleChange = (e) => {
-    const { name, value, type, selectedIndex } = e.target;
+    const { name, value, selectedIndex } = e.target;
     switch (name) {
       case "petName":
         setPetName(value);
         break;
       case "age":
-        setAge(Number(value));
+        setAge(value);
         break;
       case "sex":
-        console.log(value);
-        setSex(value === "0" ? 0 : 1);
+        setSex(value);
         break;
       case "size":
-        setSize(selectedIndex);
+        setSize(value);
         break;
       case "primaryBreed":
         setPrimaryBreed(value);
         break;
-      case "thumbnail":
-        setThumbnail(e.target.files[0]);
-        break;
-      case "images":
-        setImages([...e.target.files]);
-        break;
       case "purebred":
-        setPurebred(value === "0" ? 0 : 1);
+        setPurebred(value);
         break;
       case "petAge":
-        setPetAge(selectedIndex);
+        setPetAge(value);
         break;
       case "country":
         setCountry(selectedIndex);
@@ -57,10 +69,10 @@ const AddPetForm = () => {
         setCity(selectedIndex);
         break;
       case "actQuickly":
-        setActQuickly(value === "0" ? 0 : 1);
+        setActQuickly(value);
         break;
       case "hairLength":
-        setHairLength(value === "0" ? 0 : 1);
+        setHairLength(value);
         break;
       case "species":
         setSpecies(selectedIndex);
@@ -96,7 +108,6 @@ const AddPetForm = () => {
       special_needs: specialNeeds,
       primary_breed: primaryBreed,
       thumbnail: thumbnail,
-      images: images,
     };
 
     console.log({ petData });
@@ -115,7 +126,6 @@ const AddPetForm = () => {
     setSize("");
     setPrimaryBreed("");
     setThumbnail(null);
-    setImages([]);
     setPurebred("");
     setPetAge("");
     setCountry("");
@@ -154,10 +164,10 @@ const AddPetForm = () => {
             className="form-select"
           >
             <option value="">Select pet age</option>
-            <option value={1}>Puppy</option>
-            <option value={2}>Young</option>
-            <option value={3}>Adult</option>
-            <option value={4}>Senior</option>
+            <option value={"Puppy"}>Puppy</option>
+            <option value={"Young"}>Young</option>
+            <option value={"Adult"}>Adult</option>
+            <option value={"Senior"}>Senior</option>
           </select>
         </div>
         <div className="form-group">
@@ -178,9 +188,9 @@ const AddPetForm = () => {
             type="radio"
             id="male"
             name="sex"
-            value="0"
+            value="Male"
             onChange={handleChange}
-            checked={sex === 0}
+            checked={sex === "Male"}
             required
             className="form-input"
           />
@@ -189,9 +199,9 @@ const AddPetForm = () => {
             type="radio"
             id="female"
             name="sex"
-            value="1"
+            value="Female"
             onChange={handleChange}
-            checked={sex === 1}
+            checked={sex === "Female"}
             required
             className="form-input"
           />
@@ -208,9 +218,9 @@ const AddPetForm = () => {
             required
           >
             <option value="">Select</option>
-            <option value="1">Small</option>
-            <option value="2">Medium</option>
-            <option value="3">Large</option>
+            <option value="Small">Small</option>
+            <option value="Medium">Medium</option>
+            <option value="Large">Large</option>
           </select>
         </div>
         <div className="form-group">
@@ -231,24 +241,18 @@ const AddPetForm = () => {
             type="file"
             id="thumbnail"
             name="thumbnail"
-            onChange={handleChange}
+            onChange={handleThumbnailChange}
             accept="image/*"
             required
             className="form-input"
           />
-        </div>
-        <div className="form-group">
-          <label>Other Images:</label>
-          <input
-            type="file"
-            id="images"
-            name="images"
-            onChange={handleChange}
-            accept="image/*"
-            multiple
-            required
-            className="form-input"
-          />
+          {thumbnail && (
+            <img
+              src={thumbnail}
+              alt="Thumbnail"
+              style={{ maxWidth: "100px", maxHeight: "100px", margin: "5px" }}
+            />
+          )}
         </div>
         <div className="form-group">
           <label>Purebred:</label>
@@ -256,9 +260,9 @@ const AddPetForm = () => {
             type="radio"
             id="purebredYes"
             name="purebred"
-            value="0"
+            value="Yes"
             onChange={handleChange}
-            checked={purebred === 0}
+            checked={purebred === "Yes"}
             required
             className="form-input"
           />
@@ -267,9 +271,9 @@ const AddPetForm = () => {
             type="radio"
             id="purebredNo"
             name="purebred"
-            value="1"
+            value="No"
             onChange={handleChange}
-            checked={purebred === 1}
+            checked={purebred === "No"}
             required
             className="form-input"
           />
@@ -281,9 +285,9 @@ const AddPetForm = () => {
             type="radio"
             id="actQuicklyYes"
             name="actQuickly"
-            value="0"
+            value="Yes"
             onChange={handleChange}
-            checked={actQuickly === 0}
+            checked={actQuickly === "Yes"}
             required
             className="form-input"
           />
@@ -292,9 +296,9 @@ const AddPetForm = () => {
             type="radio"
             id="actQuicklyNo"
             name="actQuickly"
-            value="1"
+            value="No"
             onChange={handleChange}
-            checked={actQuickly === 1}
+            checked={actQuickly === "No"}
             required
             className="form-input"
           />
@@ -306,24 +310,24 @@ const AddPetForm = () => {
             type="radio"
             id="hairLengthYes"
             name="hairLength"
-            value="0"
+            value="Short"
             onChange={handleChange}
-            checked={hairLength === 0}
+            checked={hairLength === "Short"}
             required
             className="form-input"
           />
-          <label>Yes</label>
+          <label>Short</label>
           <input
             type="radio"
             id="hairLengthNo"
             name="hairLength"
-            value="1"
+            value="Long"
             onChange={handleChange}
-            checked={hairLength === 1}
+            checked={hairLength === "Long"}
             required
             className="form-input"
           />
-          <label>No</label>
+          <label>Long</label>
         </div>
 
         <div className="form-group">
