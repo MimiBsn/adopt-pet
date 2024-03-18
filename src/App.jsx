@@ -14,6 +14,7 @@ function App() {
   return (
     <>
       <NavBar />
+
       <Routes>
         <Route
           path="/"
@@ -29,6 +30,7 @@ function App() {
         />
         <Route path="/rehome" element={<AddPetForm />}></Route>
       </Routes>
+
       <Footer />
     </>
   );

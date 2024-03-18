@@ -88,25 +88,28 @@ nav ul li.active {
 }
 
 /******** footer ///////////////*******/
+/* Footer CSS */
 .footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  width: 100%; /* Ensure the footer spans the entire width of the screen */
   background-color: #2b7775;
   color: #fff;
-  padding: 5px;
+  padding: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  margin-top: 180px;
 }
 
 .footer-content {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
 .footer-signup {
-  text-align: left;
-  margin-left: 20px;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .footer-signup h3 {
@@ -115,11 +118,14 @@ nav ul li.active {
 
 .footer-signup form {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer-signup input[type="email"] {
   padding: 8px;
-  margin-right: 10px;
+  margin: 0 5px;
 }
 
 .footer-signup button {
@@ -131,18 +137,11 @@ nav ul li.active {
 }
 
 .footer-info {
-  display: flex;
-  align-items: center;
-  text-align: right;
-  margin-right: 20px;
+  text-align: center;
 }
 
 .footer-text {
   margin: 0;
-}
-
-.sponsor-logos {
-  /* Style your sponsor logos here */
 }
 
 /**************** add pet page style ////////////////////*/
@@ -168,8 +167,6 @@ nav ul li.active {
 .form-group label {
   color: black;
 }
-
-/************************ Dashboard page ***********************************/
 
 .dashboard-page {
   display: flex;
@@ -214,3 +211,5 @@ nav ul li.active {
   top: 100px;
   left: 16px;
 }
+
+/* petDetailPage  */
