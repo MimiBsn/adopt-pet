@@ -5,7 +5,6 @@ import Footer from "./components/Footer.jsx";
 import AddPetForm from "./components/AddPetForm.jsx";
 import { Route, Routes } from "react-router-dom";
 import { PetDetailsPage } from "./pages/PetDetailsPage";
-import { UpdatePetPage } from "./pages/UpdatePetPage";
 import { DashboardPage } from "./pages/DashboardPage";
 import UpdatePetForm from "./components/UpdatePetForm.jsx";
 

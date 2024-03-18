@@ -11,6 +11,18 @@ export const PetDetailsPage = ({ pets, setPets }) => {
     nav("/");
   };
 
+  const handleDelete = () => {
+    axios
+      .delete(`http://localhost:5001/pets/${petId}`)
+      .then((response) => {
+        console.log(`Deleted with ID ${petId}`);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    nav("/");
+  };
+
   useEffect(() => {
     const getOnePets = async () => {
       try {
@@ -90,7 +102,7 @@ export const PetDetailsPage = ({ pets, setPets }) => {
         <Link to={`/pets/updatepet/${pets.id}`}>
           <button>Update informations</button>
         </Link>
-        <button>Delete pet informations</button>
+        <button onClick={handleDelete}>Delete pet informations</button>
         <button onClick={handleBack}>Return home</button>
       </div>
     </>
