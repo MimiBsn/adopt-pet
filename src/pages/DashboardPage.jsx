@@ -8,10 +8,6 @@ export const DashboardPage = ({ pets, setPets }) => {
   const [countryFilter, setCountryFilter] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
 
-  const handleFilter = () => {
-    getPets();
-  };
-
   useEffect(() => {
     getPets();
   }, [ageFilter, typeFilter, countryFilter, searchQuery]);
@@ -58,7 +54,7 @@ export const DashboardPage = ({ pets, setPets }) => {
       </h1>
 
       <div className="filter-section">
-        <h2>Filters:</h2>
+        <h2>Choose Your Favorite Friend Now !</h2>
         <select
           value={ageFilter}
           onChange={(e) => setAgeFilter(e.target.value)}

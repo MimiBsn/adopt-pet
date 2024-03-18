@@ -20,6 +20,7 @@ const UpdatePetForm = () => {
   const [species, setSpecies] = useState("");
   const [color, setColor] = useState("");
   const [specialNeeds, setSpecialNeeds] = useState("");
+  const [yearMonthAge, setYearMonthAge] = useState("");
   const { petId } = useParams();
 
   const nav = useNavigate();
@@ -51,7 +52,7 @@ const UpdatePetForm = () => {
         .catch((error) => {
           console.log(` error while get the updated object ${error}`);
         });
-      console.log(updatedPet);
+
       setPet(updatedPet);
       setPetName(updatedPet.data.pet_name);
       setAge(updatedPet.data.age);
@@ -118,6 +119,9 @@ const UpdatePetForm = () => {
       case "specialNeeds":
         setSpecialNeeds(value);
         break;
+      case "yearMonthAge":
+        setYearMonthAge(value);
+        break;
       default:
         break;
     }
@@ -145,7 +149,6 @@ const UpdatePetForm = () => {
       thumbnail: thumbnail,
     };
 
-    console.log({ petData });
     try {
       const response = await axios.patch(
         `http://localhost:5001/pets/${petId}`,
@@ -176,7 +179,7 @@ const UpdatePetForm = () => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="petAge">Pet Age:</label>
+          <label>Pet Age:</label>
           <select
             id="petAge"
             name="petAge"
@@ -203,7 +206,19 @@ const UpdatePetForm = () => {
             required
             className="form-input"
           />
+          <select
+            id="yearMonthAge"
+            name="yearMonthAge"
+            value={yearMonthAge}
+            onChange={handleChange}
+            required
+            className="form-select"
+          >
+            <option value={"Month"}>Months</option>
+            <option value={"Year"}>Years</option>
+          </select>
         </div>
+
         <div className="form-group">
           <label>Sex:</label>
           <input
