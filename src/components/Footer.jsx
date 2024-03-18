@@ -13,7 +13,6 @@ const Footer = () => {
         </div>
         <div className="footer-info">
           <p className="footer-text">All rights reserved &copy; 2024</p>
-          {/* You can add your sponsor logos here */}
         </div>
       </div>
     </footer>
