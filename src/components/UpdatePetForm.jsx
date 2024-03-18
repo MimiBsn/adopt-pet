@@ -22,7 +22,7 @@ const UpdatePetForm = () => {
   const [specialNeeds, setSpecialNeeds] = useState("");
   const { petId } = useParams();
 
-  // const nav = useNavigate();
+  const nav = useNavigate();
 
   const handleThumbnailChange = (e) => {
     const formData = new FormData();
@@ -153,10 +153,10 @@ const UpdatePetForm = () => {
       );
 
       console.log("Pet updated successfully:", response.data);
+      nav(`/pets/${petId}`);
     } catch (error) {
       console.error("There was a problem updating the pet:", error);
     }
-    nav("/");
   };
 
   return (
@@ -446,7 +446,7 @@ const UpdatePetForm = () => {
           </div>
         )}
         <button type="submit" className="submit-button">
-          Add Pet
+          Update Pet
         </button>
       </form>
     </div>
