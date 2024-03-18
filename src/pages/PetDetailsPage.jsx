@@ -12,15 +12,17 @@ export const PetDetailsPage = ({ pets, setPets }) => {
   };
 
   const handleDelete = () => {
-    axios
-      .delete(`http://localhost:5001/pets/${petId}`)
-      .then((response) => {
-        console.log(`Deleted with ID ${petId}`);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    nav("/");
+    if (confirm("Are you sure ?")) {
+      axios
+        .delete(`http://localhost:5001/pets/${petId}`)
+        .then((response) => {
+          console.log(`Deleted with ID ${petId}`);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      nav("/");
+    }
   };
 
   useEffect(() => {
@@ -62,48 +64,51 @@ export const PetDetailsPage = ({ pets, setPets }) => {
 
   return (
     <div className="petDetailPage">
-      <div className="">
+      <div className="details-card">
         <h1>Hello I'm {pets.pet_name} !</h1>
         <img src={pets.thumbnail} alt={pets.pet_name} />
-        <table>
+        <h3>My informations</h3>
+        <table className="pet-info">
           <tbody>
             <tr>
-              <th>{pets.species} breed</th>
+              <th>Breed</th>
               <td>{pets.primary_breed}</td>
-              <th>Country</th>
-              <td>{country}</td>
-            </tr>
-            <tr>
-              <th>Age </th>
-              <td>{!pets.age ? pets.pet_age : pets.age}</td>
-              <th>City</th>
-              <td>{city}</td>
-            </tr>
-            <tr>
-              <th>Sex </th>
-              <td>{pets.sex}</td>
               <th>Purebred</th>
               <td>{pets.purebred}</td>
             </tr>
             <tr>
-              <th>Size </th>
-              <td>{pets.size}</td>
-            </tr>
-            <tr>
+              <th>Age </th>
+              <td>{!pets.age ? pets.pet_age : pets.age} year old</td>
               <th>Hair length </th>
               <td>{pets.hair_length}</td>
             </tr>
             <tr>
-              <th>Special needs </th>
+              <th>Sex </th>
+              <td>{pets.sex}</td>
+              <th>I'm from</th>
+              <td>{country}</td>
+            </tr>
+            <tr>
+              <th>Size </th>
+              <td>{pets.size}</td>
+              <th>I live in</th>
+              <td>{city}</td>
+            </tr>
+            <tr>
+              <th>Color </th>
+              <td>{pets.color}</td>
+              <th>I'm needy </th>
               <td>{pets.special_needs}</td>
             </tr>
           </tbody>
         </table>
-        <Link to={`/pets/updatepet/${pets.id}`}>
-          <button>Update informations</button>
-        </Link>
-        <button onClick={handleDelete}>Delete pet informations</button>
-        <button onClick={handleBack}>Return home</button>
+        <div className="end-page-btn">
+          <Link to={`/pets/updatepet/${pets.id}`}>
+            <button>Update informations</button>
+          </Link>
+          <button onClick={handleDelete}>Delete pet informations</button>
+          <button onClick={handleBack}>Return home</button>
+        </div>
       </div>
     </div>
   );
