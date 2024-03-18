@@ -49,48 +49,50 @@ export const PetDetailsPage = ({ pets, setPets }) => {
   }
 
   return (
-    <div className="petDetailPage">
-      <h1>Hello I'm {pets.pet_name} !</h1>
-      <img src={pets.thumbnail} alt={pets.pet_name} />
-      <table>
-        <tbody>
-          <tr>
-            <th>{pets.species} breed</th>
-            <td>{pets.primary_breed}</td>
-            <th>Country</th>
-            <td>{country}</td>
-          </tr>
-          <tr>
-            <th>Age </th>
-            <td>{!pets.age ? pets.pet_age : pets.age}</td>
-            <th>City</th>
-            <td>{city}</td>
-          </tr>
-          <tr>
-            <th>Sex </th>
-            <td>{pets.sex}</td>
-            <th>Purebred</th>
-            <td>{pets.purebred}</td>
-          </tr>
-          <tr>
-            <th>Size </th>
-            <td>{pets.size}</td>
-          </tr>
-          <tr>
-            <th>Hair length </th>
-            <td>{pets.hair_length}</td>
-          </tr>
-          <tr>
-            <th>Special needs </th>
-            <td>{pets.special_needs}</td>
-          </tr>
-        </tbody>
-      </table>
-      <Link to={`/pets/updatepet/${pets.id}`}>
-        <button>Update informations</button>
-      </Link>
-      <button>Delete pet informations</button>
-      <button onClick={handleBack}>Return home</button>
-    </div>
+    <>
+      <div className="petDetailPage">
+        <h1>Hello I'm {pets.pet_name} !</h1>
+        <img src={pets.thumbnail} alt={pets.pet_name} />
+        <table>
+          <tbody>
+            <tr>
+              <th>{pets.species} breed</th>
+              <td>{pets.primary_breed}</td>
+              <th>Country</th>
+              <td>{country}</td>
+            </tr>
+            <tr>
+              <th>Age </th>
+              <td>{!pets.age ? pets.pet_age : pets.age}</td>
+              <th>City</th>
+              <td>{city}</td>
+            </tr>
+            <tr>
+              <th>Sex </th>
+              <td>{pets.sex}</td>
+              <th>Purebred</th>
+              <td>{pets.purebred}</td>
+            </tr>
+            <tr>
+              <th>Size </th>
+              <td>{pets.size}</td>
+            </tr>
+            <tr>
+              <th>Hair length </th>
+              <td>{pets.hair_length}</td>
+            </tr>
+            <tr>
+              <th>Special needs </th>
+              <td>{pets.special_needs}</td>
+            </tr>
+          </tbody>
+        </table>
+        <Link to={`/pets/updatepet/${pets.id}`}>
+          <button>Update informations</button>
+        </Link>
+        <button>Delete pet informations</button>
+        <button onClick={handleBack}>Return home</button>
+      </div>
+    </>
   );
 };

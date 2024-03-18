@@ -23,6 +23,9 @@ export const DashboardPage = ({ pets, setPets }) => {
   return (
     <>
       <div className="first-content"></div>
+      <h1 className="catch-phrase">
+        Let's meet your next 4 legged best friend !
+      </h1>
       <div className="dashboard-page">
         {pets.length > 1 &&
           pets.map((onePet) => {
