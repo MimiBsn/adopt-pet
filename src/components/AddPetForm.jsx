@@ -71,7 +71,6 @@ const AddPetForm = () => {
         const selectedIndex = options.selectedIndex;
         setCity(options[selectedIndex].value);
         console.log(`city ${options[selectedIndex].value}`);
-
         break;
       case "actQuickly":
         setActQuickly(value);
@@ -391,7 +390,7 @@ const AddPetForm = () => {
           </select>
         </div>
 
-        {country === "1" && (
+        {country == "1" && (
           <div className="form-group">
             <label>City:</label>
             <select
@@ -410,7 +409,7 @@ const AddPetForm = () => {
             </select>
           </div>
         )}
-        {country === "2" && (
+        {country == "2" && (
           <div className="form-group">
             <label htmlFor="city">City:</label>
             <select
