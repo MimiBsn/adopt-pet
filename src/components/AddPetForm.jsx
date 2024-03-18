@@ -391,7 +391,7 @@ const AddPetForm = () => {
           </select>
         </div>
 
-        {country === "1" && (
+        {country == "1" && (
           <div className="form-group">
             <label>City:</label>
             <select
@@ -410,7 +410,7 @@ const AddPetForm = () => {
             </select>
           </div>
         )}
-        {country === "2" && (
+        {country == "2" && (
           <div className="form-group">
             <label htmlFor="city">City:</label>
             <select
