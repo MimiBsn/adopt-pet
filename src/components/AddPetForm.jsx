@@ -71,7 +71,6 @@ const AddPetForm = () => {
         const selectedIndex = options.selectedIndex;
         setCity(options[selectedIndex].value);
         console.log(`city ${options[selectedIndex].value}`);
-
         break;
       case "actQuickly":
         setActQuickly(value);
