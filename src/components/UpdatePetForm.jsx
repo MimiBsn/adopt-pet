@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const UpdatePetForm = () => {
   const [pet, setPet] = useState("");
@@ -145,7 +146,6 @@ const UpdatePetForm = () => {
 
     console.log({ petData });
     try {
-      petId = 14;
       const response = await axios.patch(
         `http://localhost:5001/pets/${petId}`,
         petData

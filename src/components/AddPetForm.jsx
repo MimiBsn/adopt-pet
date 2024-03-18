@@ -39,7 +39,7 @@ const AddPetForm = () => {
   };
 
   const handleChange = (e) => {
-    const { name, value, selectedIndex } = e.target;
+    const { name, value, selectedIndex, options } = e.target;
     switch (name) {
       case "petName":
         setPetName(value);
@@ -64,9 +64,14 @@ const AddPetForm = () => {
         break;
       case "country":
         setCountry(selectedIndex);
+        console.log(`country ${selectedIndex}`);
+        setCity("");
         break;
       case "city":
-        setCity(selectedIndex);
+        const selectedIndex = options.selectedIndex;
+        setCity(options[selectedIndex].value);
+        console.log(`city ${options[selectedIndex].value}`);
+
         break;
       case "actQuickly":
         setActQuickly(value);
@@ -386,7 +391,7 @@ const AddPetForm = () => {
           </select>
         </div>
 
-        {country == "1" && (
+        {country === "1" && (
           <div className="form-group">
             <label>City:</label>
             <select
@@ -405,7 +410,7 @@ const AddPetForm = () => {
             </select>
           </div>
         )}
-        {country == "2" && (
+        {country === "2" && (
           <div className="form-group">
             <label htmlFor="city">City:</label>
             <select
