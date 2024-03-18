@@ -61,8 +61,8 @@ export const PetDetailsPage = ({ pets, setPets }) => {
   }
 
   return (
-    <>
-      <div className="petDetailPage">
+    <div className="petDetailPage">
+      <div className="">
         <h1>Hello I'm {pets.pet_name} !</h1>
         <img src={pets.thumbnail} alt={pets.pet_name} />
         <table>
@@ -105,6 +105,6 @@ export const PetDetailsPage = ({ pets, setPets }) => {
         <button onClick={handleDelete}>Delete pet informations</button>
         <button onClick={handleBack}>Return home</button>
       </div>
-    </>
+    </div>
   );
 };
