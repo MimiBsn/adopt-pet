@@ -19,12 +19,6 @@ const NavBar = () => {
       <nav>
         <ul>
           <li
-            className={activeTab === "findPet" ? "active" : ""}
-            onClick={() => handleTabClick("findPet")}
-          >
-            <Link to="/find-pet">Find Pet</Link>
-          </li>
-          <li
             className={activeTab === "adopt" ? "active" : ""}
             onClick={() => handleTabClick("adopt")}
           >
@@ -42,6 +36,16 @@ const NavBar = () => {
           >
             <Link to="/rehome">Rehome</Link>
           </li>
+          <li
+            className={activeTab === "about" ? "active" : ""}
+            onClick={() => handleTabClick("about")}
+          >
+            <Link to="/about">About </Link>
+          </li>
+          <div className="login-signup-buttons">
+            <button className="login-button">Login</button>
+            <button className="signup-button">Sign Up</button>
+          </div>
         </ul>
       </nav>
     </div>
