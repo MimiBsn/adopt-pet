@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 const AddPetForm = () => {
   const [petName, setPetName] = useState("");
@@ -18,6 +18,8 @@ const AddPetForm = () => {
   const [species, setSpecies] = useState("");
   const [color, setColor] = useState("");
   const [specialNeeds, setSpecialNeeds] = useState("");
+  const [yearMonthAge, setYearMonthAge] = useState("");
+
   const nav = useNavigate();
 
   const handleThumbnailChange = (e) => {
@@ -89,6 +91,9 @@ const AddPetForm = () => {
       case "specialNeeds":
         setSpecialNeeds(value);
         break;
+      case "yearMonthAge":
+        setYearMonthAge(value);
+        break;
       default:
         break;
     }
@@ -121,10 +126,7 @@ const AddPetForm = () => {
       const response = await axios.post("http://localhost:5001/pets", petData);
 
       console.log("Pet added successfully:", response.data);
-      // setPetId(response.data.id);
       nav(`/pets/${response.data.id}`);
-      console.log("this is petId", petId);
-      console.log("this is response.data.id", response.data.id);
     } catch (error) {
       console.error("There was a problem adding the pet:", error);
     }
@@ -145,8 +147,6 @@ const AddPetForm = () => {
     setSpecies("");
     setColor("");
     setSpecialNeeds("");
-
-    //nav(`/pets/${petId}`);
   };
 
   return (
@@ -193,6 +193,17 @@ const AddPetForm = () => {
             required
             className="form-input"
           />
+          <select
+            id="yearMonthAge"
+            name="yearMonthAge"
+            value={yearMonthAge}
+            onChange={handleChange}
+            required
+            className="form-select"
+          >
+            <option value={"Month"}>Months</option>
+            <option value={"Year"}>Years</option>
+          </select>
         </div>
         <div className="form-group">
           <label>Sex:</label>
