@@ -1,12 +1,29 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom"; // Import Link for navigation
+import { Link, useNavigate } from "react-router-dom"; // Import Link for navigation
 import logo from "../assets/logo.png";
+import Login from "./Login";
+import Signup from "./SignUp";
 
 const NavBar = () => {
   const [activeTab, setActiveTab] = useState("adopt");
+  const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showSignupnModal, setShowSignupnModal] = useState(false);
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
+  };
+
+  const toggleLoginModal = () => {
+    setShowLoginModal(!showLoginModal);
+  };
+
+  const toggleSignUpModal = () => {
+    setShowSignupnModal(!showSignupnModal);
+  };
+
+  const toggleModal = () => {
+    setShowLoginModal(false);
+    setShowSignupnModal(false);
   };
 
   return (
@@ -43,11 +60,17 @@ const NavBar = () => {
             <Link to="/about">About </Link>
           </li>
           <div className="login-signup-buttons">
-            <button className="login-button">Login</button>
-            <button className="signup-button">Sign Up</button>
+            <button className="login-button" onClick={toggleLoginModal}>
+              Login
+            </button>
+            <button className="signup-button" onClick={toggleSignUpModal}>
+              Sign Up
+            </button>
           </div>
         </ul>
       </nav>
+      {showLoginModal && <Login toggleModal={toggleModal} />}{" "}
+      {showSignupnModal && <Signup toggleModal={toggleModal} />}{" "}
     </div>
   );
 };
