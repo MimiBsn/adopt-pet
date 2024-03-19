@@ -45,8 +45,8 @@
   top: 0;
   right: 0;
   width: 100%;
-  background-color: #2b7775;
-  color: #fff;
+  background-color: #15616d;
+  color: #ffecd1;
   padding: 10px 20px;
   display: flex;
   flex-direction: row;
@@ -54,7 +54,7 @@
 }
 
 .logo-container img {
-  height: 40px;
+  height: 100px;
   width: auto;
   border-radius: 50%;
   margin-right: 200px;
@@ -75,14 +75,14 @@ nav ul li {
   margin-right: 120px; /* Adjust this value for desired spacing */
   cursor: pointer;
   font-size: 18px;
-  color: #fff;
+  color: #ffecd1;
 }
 nav ul li a {
-  color: white; /* Set the color of the icon to white */
+  color: #ffecd1; /* Set the color of the icon to white */
 }
 
 nav ul li a:hover {
-  color: orange;
+  color: #78290f;
 }
 nav ul li.active {
   font-weight: bold;
@@ -95,8 +95,8 @@ nav ul li.active {
   bottom: 0;
   right: 0px;
   width: 100%;
-  background-color: #2b7775;
-  color: #fff;
+  background-color: #15616d;
+  color: #ffecd1;
   padding-right: 15px;
 }
 
@@ -130,7 +130,7 @@ nav ul li.active {
 
 .footer-signup button {
   padding: 8px 15px;
-  background-color: #fff;
+  background-color: #ffecd1;
   color: #2b7775;
   border: none;
   cursor: pointer;
