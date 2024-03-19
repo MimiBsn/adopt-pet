@@ -72,6 +72,7 @@ const UpdatePetForm = () => {
       setSpecialNeeds(updatedPet.data.special_needs);
       setThumbnail(updatedPet.data.thumbnail);
       setStory(updatedPet.data.story);
+      setYearMonthAge(updatedPet.data.yearMonthAge);
     };
     getUpdateProduct();
   }, [petId]);
@@ -154,6 +155,7 @@ const UpdatePetForm = () => {
       primary_breed: primaryBreed,
       thumbnail: thumbnail,
       story: story,
+      yearMonthAge: yearMonthAge,
     };
 
     try {
@@ -222,6 +224,7 @@ const UpdatePetForm = () => {
             required
             className="form-select"
           >
+            <option value="">Select Age</option>
             <option value={"Month"}>Months</option>
             <option value={"Year"}>Years</option>
           </select>

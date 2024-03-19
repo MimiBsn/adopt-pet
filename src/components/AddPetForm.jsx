@@ -124,6 +124,7 @@ const AddPetForm = () => {
       primary_breed: primaryBreed,
       thumbnail: thumbnail,
       story: story,
+      yearMonthAge: yearMonthAge,
     };
 
     console.log({ petData });
@@ -152,6 +153,8 @@ const AddPetForm = () => {
     setSpecies("");
     setColor("");
     setSpecialNeeds("");
+    setStory("");
+    setYearMonthAge("");
   };
 
   return (
@@ -206,6 +209,7 @@ const AddPetForm = () => {
             required
             className="form-select"
           >
+            <option value="">Select Age</option>
             <option value={"Month"}>Months</option>
             <option value={"Year"}>Years</option>
           </select>
