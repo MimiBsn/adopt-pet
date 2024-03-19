@@ -19,6 +19,7 @@ const AddPetForm = () => {
   const [color, setColor] = useState("");
   const [specialNeeds, setSpecialNeeds] = useState("");
   const [yearMonthAge, setYearMonthAge] = useState("");
+  const [story, setStory] = useState("");
 
   const nav = useNavigate();
 
@@ -94,6 +95,9 @@ const AddPetForm = () => {
       case "yearMonthAge":
         setYearMonthAge(value);
         break;
+      case "story":
+        setStory(value);
+        break;
       default:
         break;
     }
@@ -119,6 +123,7 @@ const AddPetForm = () => {
       special_needs: specialNeeds,
       primary_breed: primaryBreed,
       thumbnail: thumbnail,
+      story: story,
     };
 
     console.log({ petData });
@@ -230,7 +235,22 @@ const AddPetForm = () => {
           />
           <label>Female</label>
         </div>
-
+        <div className="form-group">
+          <label>Species:</label>
+          <select
+            id="species"
+            name="species"
+            value={species}
+            onChange={handleChange}
+            required
+            className="form-select"
+          >
+            <option value="">Select species</option>
+            <option value="Cat">Cat</option>
+            <option value="Dog">Dog</option>
+            <option value="Bird">Bird</option>
+          </select>
+        </div>
         <div className="form-group">
           <label>Size:</label>
           <select
@@ -354,22 +374,6 @@ const AddPetForm = () => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="species">Species:</label>
-          <select
-            id="species"
-            name="species"
-            value={species}
-            onChange={handleChange}
-            required
-            className="form-select"
-          >
-            <option value="">Select species</option>
-            <option value="Cat">Cat</option>
-            <option value="Dog">Dog</option>
-            <option value="Bird">Bird</option>
-          </select>
-        </div>
-        <div className="form-group">
           <label>Color:</label>
           <input
             type="text"
@@ -377,7 +381,6 @@ const AddPetForm = () => {
             name="color"
             value={color}
             onChange={handleChange}
-            required
             className="form-input"
           />
         </div>
@@ -389,7 +392,6 @@ const AddPetForm = () => {
             name="specialNeeds"
             value={specialNeeds}
             onChange={handleChange}
-            required
             className="form-input"
           />
         </div>
@@ -447,6 +449,19 @@ const AddPetForm = () => {
             </select>
           </div>
         )}
+
+        <div className="form-group">
+          <label htmlFor="story">Story About Your Pet:</label>
+          <textarea
+            id="story"
+            name="story"
+            value={story}
+            onChange={handleChange}
+            className="form-input"
+            rows={5}
+            placeholder="Enter the pet's story..."
+          />
+        </div>
         <button type="submit" className="submit-button">
           Add Pet
         </button>
