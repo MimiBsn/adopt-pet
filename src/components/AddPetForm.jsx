@@ -451,7 +451,7 @@ const AddPetForm = () => {
         )}
 
         <div className="form-group">
-          <label htmlFor="story">Story About Your Pet:</label>
+          <label htmlFor="story">Story About My Pet:</label>
           <textarea
             id="story"
             name="story"

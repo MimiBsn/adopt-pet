@@ -21,6 +21,8 @@ const UpdatePetForm = () => {
   const [color, setColor] = useState("");
   const [specialNeeds, setSpecialNeeds] = useState("");
   const [yearMonthAge, setYearMonthAge] = useState("");
+  const [story, setStory] = useState("");
+
   const { petId } = useParams();
 
   const nav = useNavigate();
@@ -69,6 +71,7 @@ const UpdatePetForm = () => {
       setColor(updatedPet.data.color);
       setSpecialNeeds(updatedPet.data.special_needs);
       setThumbnail(updatedPet.data.thumbnail);
+      setStory(updatedPet.data.story);
     };
     getUpdateProduct();
   }, [petId]);
@@ -122,6 +125,9 @@ const UpdatePetForm = () => {
       case "yearMonthAge":
         setYearMonthAge(value);
         break;
+      case "story":
+        setStory(value);
+        break;
       default:
         break;
     }
@@ -147,6 +153,7 @@ const UpdatePetForm = () => {
       special_needs: specialNeeds,
       primary_breed: primaryBreed,
       thumbnail: thumbnail,
+      story: story,
     };
 
     try {
@@ -391,7 +398,6 @@ const UpdatePetForm = () => {
             name="color"
             value={color}
             onChange={handleChange}
-            required
             className="form-input"
           />
         </div>
@@ -403,7 +409,6 @@ const UpdatePetForm = () => {
             name="specialNeeds"
             value={specialNeeds}
             onChange={handleChange}
-            required
             className="form-input"
           />
         </div>
@@ -461,6 +466,18 @@ const UpdatePetForm = () => {
             </select>
           </div>
         )}
+        <div className="form-group">
+          <label htmlFor="story">Story About My Pet:</label>
+          <textarea
+            id="story"
+            name="story"
+            value={story}
+            onChange={handleChange}
+            className="form-input"
+            rows={5}
+            placeholder="Enter the pet's story..."
+          />
+        </div>
         <button type="submit" className="submit-button">
           Update pet infos
         </button>
