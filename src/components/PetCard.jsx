@@ -1,4 +1,4 @@
-export const PetCard = ({ pets, setPets, onePet }) => {
+export const PetCard = ({ pets, setPets, onePet, petList, setPetList }) => {
   return (
     <div className="pet-card">
       <img src={onePet.thumbnail} alt={onePet.pet_name} />

@@ -296,27 +296,48 @@ nav ul li.active {
 }
 
 /********************************* add pet page style *****************************/
-
 .add-pet-form-container {
-  max-width: 400px;
-  margin: 0px;
-  background-color: #a6cdc3;
-  padding: 100px;
-  border-radius: 20px;
-  overflow-y: auto;
-  max-height: calc(100vh - 100px); /* Adjust the height */
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
 }
 
-.form-group label,
-.form-group input,
-.form-group select {
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 10px;
+.add-pet-form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.form-group label {
-  color: black;
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.form-input,
+.form-select {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #15616d;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #0d4d5e;
 }
 
 /****************************Dashboard page***********************/

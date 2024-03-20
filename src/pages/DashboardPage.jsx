@@ -99,7 +99,13 @@ export const DashboardPage = ({ pets, setPets }) => {
           pets.map((onePet) => {
             return (
               <Link key={onePet.id} to={`/pets/${onePet.id}`}>
-                <PetCard pets={pets} setPets={setPets} onePet={onePet} />
+                <PetCard
+                  pets={pets}
+                  setPets={setPets}
+                  onePet={onePet}
+                  petList={pets}
+                  setPetList={setPets}
+                />
               </Link>
             );
           })}

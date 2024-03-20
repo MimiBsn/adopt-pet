@@ -4,10 +4,11 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5001";
 
-export const PetDetailsPage = ({ pets, setPets, onePet }) => {
+export const PetDetailsPage = ({ pets, setPets }) => {
   const [country, setCountry] = useState();
   const [city, setCity] = useState();
-  const [petList, setPetList] = useState(pets);
+  const [pet, setPet] = useState(pets);
+
   const { petId } = useParams();
   const nav = useNavigate();
   const handleBack = () => {
@@ -19,9 +20,9 @@ export const PetDetailsPage = ({ pets, setPets, onePet }) => {
       axios
         .delete(`${API_URL}/pets/${petId}`)
         .then((response) => {
-          console.log(`Deleted with ID ${petId}`);
-          setPetList(petList.filter((pet) => pet.petId !== petId));
-          console.log(petList);
+          axios.get(`${API_URL}/pets`).then((response) => {
+            setPets(response.data);
+          });
         })
         .catch((err) => {
           console.log(err);
@@ -35,7 +36,7 @@ export const PetDetailsPage = ({ pets, setPets, onePet }) => {
       try {
         const ourOnePet = await axios.get(`${API_URL}/pets/${petId}`);
         console.log("first console log", ourOnePet.data);
-        setPets(ourOnePet.data);
+        setPet(ourOnePet.data);
         const id = ourOnePet.data.country;
 
         const getCountry = await axios.get(`${API_URL}/country/${id}`);
@@ -54,23 +55,23 @@ export const PetDetailsPage = ({ pets, setPets, onePet }) => {
   }, [petId]);
 
   function adoptFees() {
-    if (pets.species === "Dog") {
+    if (pet.species === "Dog") {
       return "250€";
     } else {
       return "200€";
     }
   }
 
-  if (!pets) {
+  if (!pet) {
     return <h1>Loading...</h1>;
   }
 
   return (
     <div className="petDetailPage">
       <div className="details-card">
-        <h1>Hello I'm {pets.pet_name} !</h1>
+        <h1>Hello I'm {pet.pet_name} !</h1>
         <div className="img-infobox">
-          <img src={pets.thumbnail} alt={pets.pet_name} />
+          <img src={pet.thumbnail} alt={pet.pet_name} />
           <div className="info-box">
             <h2>
               Cared for by <strong>IronHack Ranch Animal Rescue</strong>
@@ -95,43 +96,43 @@ export const PetDetailsPage = ({ pets, setPets, onePet }) => {
             <tbody>
               <tr>
                 <th>Breed</th>
-                <td>{pets.primary_breed}</td>
+                <td>{pet.primary_breed}</td>
                 <th>Purebred</th>
-                <td>{pets.purebred}</td>
+                <td>{pet.purebred}</td>
               </tr>
               <tr>
                 <th>Age </th>
-                <td>{!pets.age ? pets.pet_age : pets.age} year old</td>
+                <td>{!pet.age ? pet.pet_age : pet.age} year old</td>
                 <th>Hair length </th>
-                <td>{pets.hair_length}</td>
+                <td>{pet.hair_length}</td>
               </tr>
               <tr>
                 <th>Sex </th>
-                <td>{pets.sex}</td>
+                <td>{pet.sex}</td>
                 <th>I'm from</th>
                 <td>{country}</td>
               </tr>
               <tr>
                 <th>Size </th>
-                <td>{pets.size}</td>
+                <td>{pet.size}</td>
                 <th>I live in</th>
                 <td>{city}</td>
               </tr>
               <tr>
                 <th>Color </th>
-                <td>{pets.color}</td>
+                <td>{pet.color}</td>
                 <th>I'm needy </th>
-                <td>{pets.special_needs}</td>
+                <td>{pet.special_needs}</td>
               </tr>
             </tbody>
           </table>
         </div>
         <div className="pet-story">
           <h3>My story</h3>
-          <p>{pets.story}</p>
+          <p>{pet.story}</p>
         </div>
         <div className="end-page-btn">
-          <Link to={`/pets/updatepet/${pets.id}`}>
+          <Link to={`/pets/updatepet/${pet.id}`}>
             <button>Update informations</button>
           </Link>
           <button onClick={handleDelete}>Delete pet informations</button>
