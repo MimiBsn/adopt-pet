@@ -1,6 +1,5 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-
+  font-family: "ArimaMadurai-Light";
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -9,7 +8,7 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #78290f;
   text-decoration: inherit;
 }
 a:hover {
@@ -19,6 +18,7 @@ a:hover {
 body {
   margin: 0;
   min-height: 100vh;
+  font-family: "ArimaMadurai-Bold";
 }
 
 button {
