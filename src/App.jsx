@@ -8,6 +8,8 @@ import { PetDetailsPage } from "./pages/PetDetailsPage";
 import { DashboardPage } from "./pages/DashboardPage";
 import UpdatePetForm from "./components/UpdatePetForm.jsx";
 import { NotFound } from "./components/NotFound.jsx";
+import { PetAdvice } from "./components/PetAdvice.jsx";
+import AdoptPage from "./components/AdoptPage.jsx";
 
 function App() {
   const [pets, setPets] = useState(null);
@@ -25,6 +27,9 @@ function App() {
           path="/pets/:petId"
           element={<PetDetailsPage pets={pets} setPets={setPets} />}
         />
+         <Route path="/pet-advice" element={<PetAdvice />}></Route> 
+
+        <Route path="/adopt" element={<AdoptPage />}></Route>  
         <Route
           path="/pets/updatepet/:petId"
           element={<UpdatePetForm pets={pets} setPets={setPets} />}
