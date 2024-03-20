@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import cool_cat from "../assets/cool_cat.jpg";
+import cat from "../assets/cat.jpg";
+import cat_girl from "../assets/cat_girl.jpg";
 
 const AddPetForm = () => {
   const [petName, setPetName] = useState("");
@@ -159,318 +162,328 @@ const AddPetForm = () => {
   };
 
   return (
-    <div className="add-pet-form-container">
-      <h2>Add Pet</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Pet Name:</label>
-          <input
-            type="text"
-            id="petName"
-            name="petName"
-            value={petName}
-            className="form-input"
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="petAge">Pet Age:</label>
-          <select
-            id="petAge"
-            name="petAge"
-            value={petAge}
-            onChange={handleChange}
-            required
-            className="form-select"
-          >
-            <option value="">Select pet age</option>
-            <option value={"Puppy"}>Puppy</option>
-            <option value={"Young"}>Young</option>
-            <option value={"Adult"}>Adult</option>
-            <option value={"Senior"}>Senior</option>
-          </select>
-        </div>
-        <div className="form-group">
-          <label>Age:</label>
-          <input
-            type="number"
-            id="age"
-            name="age"
-            value={age}
-            onChange={handleChange}
-            required
-            className="form-input"
-          />
-          <select
-            id="yearMonthAge"
-            name="yearMonthAge"
-            value={yearMonthAge}
-            onChange={handleChange}
-            required
-            className="form-select"
-          >
-            <option value="">Select Age</option>
-            <option value={"Month"}>Months</option>
-            <option value={"Year"}>Years</option>
-          </select>
-        </div>
-        <div className="form-group">
-          <label>Sex:</label>
-          <input
-            type="radio"
-            id="male"
-            name="sex"
-            value="Male"
-            onChange={handleChange}
-            checked={sex === "Male"}
-            required
-            className="form-input"
-          />
-          <label>Male</label>
-          <input
-            type="radio"
-            id="female"
-            name="sex"
-            value="Female"
-            onChange={handleChange}
-            checked={sex === "Female"}
-            required
-            className="form-input"
-          />
-          <label>Female</label>
-        </div>
-        <div className="form-group">
-          <label>Species:</label>
-          <select
-            id="species"
-            name="species"
-            value={species}
-            onChange={handleChange}
-            required
-            className="form-select"
-          >
-            <option value="">Select species</option>
-            <option value="Cat">Cat</option>
-            <option value="Dog">Dog</option>
-            <option value="Bird">Bird</option>
-          </select>
-        </div>
-        <div className="form-group">
-          <label>Size:</label>
-          <select
-            id="size"
-            name="size"
-            value={size}
-            onChange={handleChange}
-            required
-          >
-            <option value="">Select</option>
-            <option value="Small">Small</option>
-            <option value="Medium">Medium</option>
-            <option value="Large">Large</option>
-          </select>
-        </div>
-        <div className="form-group">
-          <label>primaryBreed:</label>
-          <input
-            type="text"
-            id="primaryBreed"
-            name="primaryBreed"
-            value={primaryBreed}
-            onChange={handleChange}
-            required
-            className="form-input"
-          />
-        </div>
-        <div className="form-group">
-          <label>Profile Image:</label>
-          <input
-            type="file"
-            id="thumbnail"
-            name="thumbnail"
-            onChange={handleThumbnailChange}
-            accept="image/*"
-            required
-            className="form-input"
-          />
-          {thumbnail && (
-            <img
-              src={thumbnail}
-              alt="Thumbnail"
-              style={{ maxWidth: "100px", maxHeight: "100px", margin: "5px" }}
+    <div className="add-container">
+      <div className="left-image">
+        <img src={cool_cat} alt="Left Image" />
+      </div>
+
+      <div className="add-pet-form-container">
+        <h2>Fill Your Pet Information here</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label>Pet Name:</label>
+            <input
+              type="text"
+              id="petName"
+              name="petName"
+              value={petName}
+              className="form-input"
+              onChange={handleChange}
+              required
             />
+          </div>
+          <div className="form-group">
+            <label htmlFor="petAge">Pet Age:</label>
+            <select
+              id="petAge"
+              name="petAge"
+              value={petAge}
+              onChange={handleChange}
+              required
+              className="form-select"
+            >
+              <option value="">Select pet age</option>
+              <option value={"Puppy"}>Puppy</option>
+              <option value={"Young"}>Young</option>
+              <option value={"Adult"}>Adult</option>
+              <option value={"Senior"}>Senior</option>
+            </select>
+          </div>
+          <div className="form-group">
+            <label>Age:</label>
+            <input
+              type="number"
+              id="age"
+              name="age"
+              value={age}
+              onChange={handleChange}
+              required
+              className="form-input"
+            />
+            <select
+              id="yearMonthAge"
+              name="yearMonthAge"
+              value={yearMonthAge}
+              onChange={handleChange}
+              required
+              className="form-select"
+            >
+              <option value="">Select Age</option>
+              <option value={"Month"}>Months</option>
+              <option value={"Year"}>Years</option>
+            </select>
+          </div>
+          <div className="form-group">
+            <label>Sex:</label>
+            <input
+              type="radio"
+              id="male"
+              name="sex"
+              value="Male"
+              onChange={handleChange}
+              checked={sex === "Male"}
+              required
+              className="form-input"
+            />
+            <label>Male</label>
+            <input
+              type="radio"
+              id="female"
+              name="sex"
+              value="Female"
+              onChange={handleChange}
+              checked={sex === "Female"}
+              required
+              className="form-input"
+            />
+            <label>Female</label>
+          </div>
+          <div className="form-group">
+            <label>Species:</label>
+            <select
+              id="species"
+              name="species"
+              value={species}
+              onChange={handleChange}
+              required
+              className="form-select"
+            >
+              <option value="">Select species</option>
+              <option value="Cat">Cat</option>
+              <option value="Dog">Dog</option>
+              <option value="Bird">Bird</option>
+            </select>
+          </div>
+          <div className="form-group">
+            <label>Size:</label>
+            <select
+              id="size"
+              name="size"
+              value={size}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Select</option>
+              <option value="Small">Small</option>
+              <option value="Medium">Medium</option>
+              <option value="Large">Large</option>
+            </select>
+          </div>
+          <div className="form-group">
+            <label>primaryBreed:</label>
+            <input
+              type="text"
+              id="primaryBreed"
+              name="primaryBreed"
+              value={primaryBreed}
+              onChange={handleChange}
+              required
+              className="form-input"
+            />
+          </div>
+          <div className="form-group">
+            <label>Profile Image:</label>
+            <input
+              type="file"
+              id="thumbnail"
+              name="thumbnail"
+              onChange={handleThumbnailChange}
+              accept="image/*"
+              required
+              className="form-input"
+            />
+            {thumbnail && (
+              <img
+                src={thumbnail}
+                alt="Thumbnail"
+                style={{ maxWidth: "100px", maxHeight: "100px", margin: "5px" }}
+              />
+            )}
+          </div>
+          <div className="form-group">
+            <label>Purebred:</label>
+            <input
+              type="radio"
+              id="purebredYes"
+              name="purebred"
+              value="Yes"
+              onChange={handleChange}
+              checked={purebred === "Yes"}
+              required
+              className="form-input"
+            />
+            <label>Yes</label>
+            <input
+              type="radio"
+              id="purebredNo"
+              name="purebred"
+              value="No"
+              onChange={handleChange}
+              checked={purebred === "No"}
+              required
+              className="form-input"
+            />
+            <label>No</label>
+          </div>
+          <div className="form-group">
+            <label>Act Quickly:</label>
+            <input
+              type="radio"
+              id="actQuicklyYes"
+              name="actQuickly"
+              value="Yes"
+              onChange={handleChange}
+              checked={actQuickly === "Yes"}
+              required
+              className="form-input"
+            />
+            <label>Yes</label>
+            <input
+              type="radio"
+              id="actQuicklyNo"
+              name="actQuickly"
+              value="No"
+              onChange={handleChange}
+              checked={actQuickly === "No"}
+              required
+              className="form-input"
+            />
+            <label>No</label>
+          </div>
+          <div className="form-group">
+            <label>Hair Length:</label>
+            <input
+              type="radio"
+              id="hairLengthYes"
+              name="hairLength"
+              value="Short"
+              onChange={handleChange}
+              checked={hairLength === "Short"}
+              required
+              className="form-input"
+            />
+            <label>Short</label>
+            <input
+              type="radio"
+              id="hairLengthNo"
+              name="hairLength"
+              value="Long"
+              onChange={handleChange}
+              checked={hairLength === "Long"}
+              required
+              className="form-input"
+            />
+            <label>Long</label>
+          </div>
+
+          <div className="form-group">
+            <label>Color:</label>
+            <input
+              type="text"
+              id="color"
+              name="color"
+              value={color}
+              onChange={handleChange}
+              className="form-input"
+            />
+          </div>
+          <div className="form-group">
+            <label>Special Needs:</label>
+            <input
+              type="text"
+              id="specialNeeds"
+              name="specialNeeds"
+              value={specialNeeds}
+              onChange={handleChange}
+              className="form-input"
+            />
+          </div>
+          <div className="form-group">
+            <label>Country:</label>
+            <select
+              id="country"
+              name="country"
+              value={country}
+              onChange={handleChange}
+              required
+              className="form-input"
+            >
+              <option value="">Select Country</option>
+              <option value="1">Germany</option>
+              <option value="2">France</option>
+            </select>
+          </div>
+
+          {country == "1" && (
+            <div className="form-group">
+              <label>City:</label>
+              <select
+                id="city"
+                name="city"
+                value={city}
+                onChange={handleChange}
+                required
+                className="form-input"
+              >
+                <option value="">Select City</option>
+                <option value="1">Berlin</option>
+                <option value="2">Munich</option>
+                <option value="3">Frankfurt</option>
+                <option value="4">Hamburg</option>
+              </select>
+            </div>
           )}
-        </div>
-        <div className="form-group">
-          <label>Purebred:</label>
-          <input
-            type="radio"
-            id="purebredYes"
-            name="purebred"
-            value="Yes"
-            onChange={handleChange}
-            checked={purebred === "Yes"}
-            required
-            className="form-input"
-          />
-          <label>Yes</label>
-          <input
-            type="radio"
-            id="purebredNo"
-            name="purebred"
-            value="No"
-            onChange={handleChange}
-            checked={purebred === "No"}
-            required
-            className="form-input"
-          />
-          <label>No</label>
-        </div>
-        <div className="form-group">
-          <label>Act Quickly:</label>
-          <input
-            type="radio"
-            id="actQuicklyYes"
-            name="actQuickly"
-            value="Yes"
-            onChange={handleChange}
-            checked={actQuickly === "Yes"}
-            required
-            className="form-input"
-          />
-          <label>Yes</label>
-          <input
-            type="radio"
-            id="actQuicklyNo"
-            name="actQuickly"
-            value="No"
-            onChange={handleChange}
-            checked={actQuickly === "No"}
-            required
-            className="form-input"
-          />
-          <label>No</label>
-        </div>
-        <div className="form-group">
-          <label>Hair Length:</label>
-          <input
-            type="radio"
-            id="hairLengthYes"
-            name="hairLength"
-            value="Short"
-            onChange={handleChange}
-            checked={hairLength === "Short"}
-            required
-            className="form-input"
-          />
-          <label>Short</label>
-          <input
-            type="radio"
-            id="hairLengthNo"
-            name="hairLength"
-            value="Long"
-            onChange={handleChange}
-            checked={hairLength === "Long"}
-            required
-            className="form-input"
-          />
-          <label>Long</label>
-        </div>
+          {country == "2" && (
+            <div className="form-group">
+              <label htmlFor="city">City:</label>
+              <select
+                id="city"
+                name="city"
+                value={city}
+                onChange={handleChange}
+                required
+                className="form-input"
+              >
+                <option value="">Select City</option>
+                <option value="5">Paris</option>
+                <option value="6">Lyon</option>
+                <option value="7">Marseille</option>
+                <option value="8">Bordeaux</option>
+              </select>
+            </div>
+          )}
 
-        <div className="form-group">
-          <label>Color:</label>
-          <input
-            type="text"
-            id="color"
-            name="color"
-            value={color}
-            onChange={handleChange}
-            className="form-input"
-          />
-        </div>
-        <div className="form-group">
-          <label>Special Needs:</label>
-          <input
-            type="text"
-            id="specialNeeds"
-            name="specialNeeds"
-            value={specialNeeds}
-            onChange={handleChange}
-            className="form-input"
-          />
-        </div>
-        <div className="form-group">
-          <label>Country:</label>
-          <select
-            id="country"
-            name="country"
-            value={country}
-            onChange={handleChange}
-            required
-            className="form-input"
-          >
-            <option value="">Select Country</option>
-            <option value="1">Germany</option>
-            <option value="2">France</option>
-          </select>
-        </div>
-
-        {country == "1" && (
           <div className="form-group">
-            <label>City:</label>
-            <select
-              id="city"
-              name="city"
-              value={city}
+            <label htmlFor="story">Story About My Pet:</label>
+            <textarea
+              id="story"
+              name="story"
+              value={story}
               onChange={handleChange}
-              required
               className="form-input"
-            >
-              <option value="">Select City</option>
-              <option value="1">Berlin</option>
-              <option value="2">Munich</option>
-              <option value="3">Frankfurt</option>
-              <option value="4">Hamburg</option>
-            </select>
+              rows={5}
+              placeholder="Enter the pet's story..."
+            />
           </div>
-        )}
-        {country == "2" && (
-          <div className="form-group">
-            <label htmlFor="city">City:</label>
-            <select
-              id="city"
-              name="city"
-              value={city}
-              onChange={handleChange}
-              required
-              className="form-input"
-            >
-              <option value="">Select City</option>
-              <option value="5">Paris</option>
-              <option value="6">Lyon</option>
-              <option value="7">Marseille</option>
-              <option value="8">Bordeaux</option>
-            </select>
-          </div>
-        )}
+          <button type="submit" className="submit-button">
+            Add Pet
+          </button>
+        </form>
+      </div>
 
-        <div className="form-group">
-          <label htmlFor="story">Story About My Pet:</label>
-          <textarea
-            id="story"
-            name="story"
-            value={story}
-            onChange={handleChange}
-            className="form-input"
-            rows={5}
-            placeholder="Enter the pet's story..."
-          />
-        </div>
-        <button type="submit" className="submit-button">
-          Add Pet
-        </button>
-      </form>
+      <div className="right-image">
+        <img src={cat_girl} alt="Right Image" />
+      </div>
     </div>
   );
 };
