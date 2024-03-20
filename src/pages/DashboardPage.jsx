@@ -16,7 +16,7 @@ export const DashboardPage = ({ pets, setPets }) => {
 
   const getPets = async () => {
     try {
-      let url = `${API_URL}pets`;
+      let url = `${API_URL}/pets`;
       const queryParams = [];
 
       if (ageFilter) {
@@ -36,7 +36,7 @@ export const DashboardPage = ({ pets, setPets }) => {
         url += `?${queryParams.join("&")}`;
       }
 
-      console.log(`url ${url}`);
+      console.log(`url dashborad ${url}`);
       const response = await axios.get(url);
       setPets(response.data);
     } catch (error) {
