@@ -9,7 +9,7 @@ import { DashboardPage } from "./pages/DashboardPage";
 import UpdatePetForm from "./components/UpdatePetForm.jsx";
 
 function App() {
-  const [pets, setPets] = useState();
+  const [pets, setPets] = useState(null);
 
   return (
     <>

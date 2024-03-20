@@ -19,6 +19,8 @@ export const PetDetailsPage = ({ pets, setPets }) => {
         .delete(`${API_URL}/pets/${petId}`)
         .then((response) => {
           console.log(`Deleted with ID ${petId}`);
+          setPets(pets.filter((pet) => pet.petId !== petId));
+          console.log(pets);
         })
         .catch((err) => {
           console.log(err);
