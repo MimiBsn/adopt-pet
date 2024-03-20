@@ -102,7 +102,9 @@ export const PetDetailsPage = ({ pets, setPets }) => {
               </tr>
               <tr>
                 <th>Age </th>
-                <td>{!pet.age ? pet.pet_age : pet.age} year old</td>
+                <td>
+                  {!pet.age ? pet.pet_age : pet.age} {pet.yearMonthAge}
+                </td>
                 <th>Hair length </th>
                 <td>{pet.hair_length}</td>
               </tr>

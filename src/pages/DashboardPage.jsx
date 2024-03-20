@@ -51,13 +51,17 @@ export const DashboardPage = ({ pets, setPets }) => {
 
   return (
     <>
-      <div className="first-content"></div>
-      <h1 className="catch-phrase">
-        Let's meet your next 4 legged best friend !
-      </h1>
-
+      <div className="first-content">
+        <div className="catch-phrase">
+          <h1>Find your fur-ever friend with just a click!</h1>
+          <h5>
+            Welcome to our pet adoption website, where tails wag and hearts
+            purr!
+          </h5>
+        </div>
+      </div>
       <div className="filter-section">
-        <h2>Choose Your Favorite Friend Now !</h2>
+        <h1>Choose Your Furry Friend Now !</h1>
         <select
           value={ageFilter}
           onChange={(e) => setAgeFilter(e.target.value)}
