@@ -35,8 +35,8 @@ const AddPetForm = () => {
           "https://api.cloudinary.com/v1_1/doceqzmuk/image/upload",
           formData
         );
-        console.log(response.data.url);
-        setThumbnail(response.data.url);
+        console.log(response.data.secure_url);
+        setThumbnail(response.data.secure_url);
       } catch (error) {
         console.error("Error uploading image:", error);
       }
@@ -70,7 +70,6 @@ const AddPetForm = () => {
         break;
       case "country":
         setCountry(selectedIndex);
-        console.log(`country ${selectedIndex}`);
         setCity("");
         break;
       case "city":

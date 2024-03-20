@@ -39,8 +39,8 @@ const UpdatePetForm = () => {
           "https://api.cloudinary.com/v1_1/doceqzmuk/image/upload",
           formData
         );
-        console.log(response.data.url);
-        setThumbnail(response.data.url);
+
+        setThumbnail(response.data.secure_url);
       } catch (error) {
         console.error("Error uploading image:", error);
       }
