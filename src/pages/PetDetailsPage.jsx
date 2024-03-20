@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5001";
+
 export const PetDetailsPage = ({ pets, setPets }) => {
   const [country, setCountry] = useState();
   const [city, setCity] = useState();
@@ -14,7 +16,7 @@ export const PetDetailsPage = ({ pets, setPets }) => {
   const handleDelete = () => {
     if (confirm("Are you sure ?")) {
       axios
-        .delete(`http://localhost:5001/pets/${petId}`)
+        .delete(`${API_URL}/pets/${petId}`)
         .then((response) => {
           console.log(`Deleted with ID ${petId}`);
         })
@@ -28,23 +30,17 @@ export const PetDetailsPage = ({ pets, setPets }) => {
   useEffect(() => {
     const getOnePets = async () => {
       try {
-        const ourOnePet = await axios.get(
-          `http://localhost:5001/pets/${petId}`
-        );
+        const ourOnePet = await axios.get(`${API_URL}pets/${petId}`);
         console.log("first console log", ourOnePet.data);
         setPets(ourOnePet.data);
         const id = ourOnePet.data.country;
 
-        const getCountry = await axios.get(
-          `http://localhost:5001/country/${id}`
-        );
+        const getCountry = await axios.get(`${API_URL}country/${id}`);
         setCountry(getCountry.data.name);
 
         const countryId = ourOnePet.data.city;
 
-        const getCity = await axios.get(
-          `http://localhost:5001/cities/${countryId}`
-        );
+        const getCity = await axios.get(`${API_URL}cities/${countryId}`);
 
         setCity(getCity.data.name);
       } catch (err) {

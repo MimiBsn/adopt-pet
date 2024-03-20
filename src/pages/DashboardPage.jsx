@@ -8,13 +8,15 @@ export const DashboardPage = ({ pets, setPets }) => {
   const [countryFilter, setCountryFilter] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
 
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5001";
+
   useEffect(() => {
     getPets();
   }, [ageFilter, typeFilter, countryFilter, searchQuery]);
 
   const getPets = async () => {
     try {
-      let url = "http://localhost:5001/pets";
+      let url = `${API_URL}/pets`;
       const queryParams = [];
 
       if (ageFilter) {

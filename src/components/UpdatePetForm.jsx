@@ -26,6 +26,7 @@ const UpdatePetForm = () => {
   const { petId } = useParams();
 
   const nav = useNavigate();
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5001";
 
   const handleThumbnailChange = (e) => {
     const formData = new FormData();
@@ -50,7 +51,7 @@ const UpdatePetForm = () => {
   useEffect(() => {
     const getUpdateProduct = async () => {
       const updatedPet = await axios
-        .get(`http://localhost:5001/pets/${petId}`)
+        .get(`${API_URL}/pets/${petId}`)
         .catch((error) => {
           console.log(` error while get the updated object ${error}`);
         });
@@ -159,10 +160,7 @@ const UpdatePetForm = () => {
     };
 
     try {
-      const response = await axios.patch(
-        `http://localhost:5001/pets/${petId}`,
-        petData
-      );
+      const response = await axios.patch(`${API_URL}/pets/${petId}`, petData);
 
       console.log("Pet updated successfully:", response.data);
       nav(`/pets/${petId}`);

@@ -22,6 +22,7 @@ const AddPetForm = () => {
   const [story, setStory] = useState("");
 
   const nav = useNavigate();
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5001";
 
   const handleThumbnailChange = (e) => {
     const formData = new FormData();
@@ -129,7 +130,7 @@ const AddPetForm = () => {
 
     console.log({ petData });
     try {
-      const response = await axios.post("http://localhost:5001/pets", petData);
+      const response = await axios.post(`${API_URL}/pets`, petData);
 
       console.log("Pet added successfully:", response.data);
       nav(`/pets/${response.data.id}`);
