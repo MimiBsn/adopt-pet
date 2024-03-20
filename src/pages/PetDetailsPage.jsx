@@ -4,9 +4,10 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5001";
 
-export const PetDetailsPage = ({ pets, setPets }) => {
+export const PetDetailsPage = ({ pets, setPets, onePet }) => {
   const [country, setCountry] = useState();
   const [city, setCity] = useState();
+  const [petList, setPetList] = useState(pets);
   const { petId } = useParams();
   const nav = useNavigate();
   const handleBack = () => {
@@ -19,8 +20,8 @@ export const PetDetailsPage = ({ pets, setPets }) => {
         .delete(`${API_URL}/pets/${petId}`)
         .then((response) => {
           console.log(`Deleted with ID ${petId}`);
-          setPets(pets.filter((pet) => pet.petId !== petId));
-          console.log(pets);
+          setPetList(petList.filter((pet) => pet.petId !== petId));
+          console.log(petList);
         })
         .catch((err) => {
           console.log(err);

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { PetCard } from "../components/PetCard";
 
 export const DashboardPage = ({ pets, setPets }) => {
   const [ageFilter, setAgeFilter] = useState("");
@@ -98,12 +99,7 @@ export const DashboardPage = ({ pets, setPets }) => {
           pets.map((onePet) => {
             return (
               <Link key={onePet.id} to={`/pets/${onePet.id}`}>
-                <div className="pet-card">
-                  <img src={onePet.thumbnail} alt={onePet.pet_name} />
-                  <h2>{onePet.pet_name}</h2>
-                  <p>Breed : {onePet.primary_breed}</p>
-                  <p>Age : {onePet.pet_age}</p>
-                </div>
+                <PetCard pets={pets} setPets={setPets} onePet={onePet} />
               </Link>
             );
           })}

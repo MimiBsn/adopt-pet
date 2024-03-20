@@ -45,7 +45,7 @@ const AddPetForm = () => {
   };
 
   const handleChange = (e) => {
-    const { name, value, selectedIndex, options } = e.target;
+    const { name, value, options } = e.target;
     switch (name) {
       case "petName":
         setPetName(value);
@@ -69,13 +69,14 @@ const AddPetForm = () => {
         setPetAge(value);
         break;
       case "country":
-        setCountry(selectedIndex);
+        setCountry(options.selectedIndex);
+        console.log(`country ${options.selectedIndex}`);
         setCity("");
         break;
       case "city":
-        const selectedIndex = options.selectedIndex;
-        setCity(options[selectedIndex].value);
-        console.log(`city ${options[selectedIndex].value}`);
+        const selectedIndexCity = options.selectedIndex;
+        setCity(options[selectedIndexCity].value);
+        console.log(`city ${options[selectedIndexCity].value}`);
         break;
       case "actQuickly":
         setActQuickly(value);
