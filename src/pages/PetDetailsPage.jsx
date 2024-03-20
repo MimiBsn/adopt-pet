@@ -30,17 +30,17 @@ export const PetDetailsPage = ({ pets, setPets }) => {
   useEffect(() => {
     const getOnePets = async () => {
       try {
-        const ourOnePet = await axios.get(`${API_URL}pets/${petId}`);
+        const ourOnePet = await axios.get(`${API_URL}/pets/${petId}`);
         console.log("first console log", ourOnePet.data);
         setPets(ourOnePet.data);
         const id = ourOnePet.data.country;
 
-        const getCountry = await axios.get(`${API_URL}country/${id}`);
+        const getCountry = await axios.get(`${API_URL}/country/${id}`);
         setCountry(getCountry.data.name);
 
         const countryId = ourOnePet.data.city;
 
-        const getCity = await axios.get(`${API_URL}cities/${countryId}`);
+        const getCity = await axios.get(`${API_URL}/cities/${countryId}`);
 
         setCity(getCity.data.name);
       } catch (err) {
