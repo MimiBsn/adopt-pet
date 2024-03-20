@@ -16,7 +16,7 @@ export const DashboardPage = ({ pets, setPets }) => {
 
   const getPets = async () => {
     try {
-      let url = `${API_URL}/pets`;
+      let url = `${API_URL}pets`;
       const queryParams = [];
 
       if (ageFilter) {
