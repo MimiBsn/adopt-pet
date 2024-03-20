@@ -1,34 +1,7 @@
 #root {
   text-align: center;
   width: 100%;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+  background-color: rgb(247, 247, 248);
 }
 
 .card {
@@ -88,8 +61,7 @@ nav ul li.active {
   font-weight: bold;
 }
 
-/******** footer ///////////////*******/
-/* Footer CSS */
+/******************************** footer ****************************/
 .footer {
   position: static;
   bottom: 0;
@@ -144,7 +116,7 @@ nav ul li.active {
   margin: 0;
 }
 
-/**************** add pet page style ////////////////////*/
+/********************************* add pet page style *****************************/
 
 .add-pet-form-container {
   max-width: 400px;
@@ -171,6 +143,8 @@ nav ul li.active {
 /****************************Dashboard page***********************/
 
 .dashboard-page {
+  align-content: center;
+  width: 70%;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -216,7 +190,7 @@ nav ul li.active {
   left: 16px;
 }
 
-/* petDetailPage  */
+/******************************* petDetailPage  ********************************/
 
 .petDetailPage {
   margin-top: 66px;
@@ -226,59 +200,112 @@ nav ul li.active {
 }
 
 .details-card {
-  background-color: rgb(43, 119, 117);
+  background-color: white;
   margin-top: 25px;
+  margin-bottom: 25px;
   width: 60%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   padding: 20px;
-  border-top-right-radius: 10%;
-  border-bottom-left-radius: 10%;
-  box-shadow: 5px 5px 20px rgb(116, 118, 118);
+  box-shadow: 5px 5px 20px rgba(116, 118, 118, 0.164);
 }
 
 .details-card h1 {
-  color: white;
+  color: #ff7d00;
   width: 100%;
-  text-align: right;
+  text-align: center;
   padding-right: 200px;
+  font-size: 4em;
 }
 
 .details-card img {
   padding: 4px;
-  background-color: orange;
+  background-color: #ffecd1;
   border-top-left-radius: 10%;
   border-bottom-right-radius: 10%;
-  width: 40%;
+  width: 50%;
 }
 
 .details-card h3 {
-  color: white;
-  width: 75%;
-  text-align: left;
-  margin: 10px;
+  background-color: #ff7d00;
+  font-size: 1.5em;
+  color: #78290f;
+  width: 93%;
+  margin: 20px;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.img-infobox {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.info-box {
+  padding: 10px;
+  width: 30%;
+  background-color: #ffecd1;
+  border-radius: 20px;
+  text-align: start;
+  padding-left: 30px;
+}
+
+.info-box h2 {
+  color: #001524;
+}
+
+.info-box strong {
+  color: #ff7d00;
+}
+
+.info-box button {
+  background-color: #78290f;
+  color: #ffecd1;
+  margin-top: 10px;
+  margin-left: 12%;
+  width: 70%;
+  border-radius: 30px;
+}
+
+.info-box h4 {
+  line-height: 5px;
+}
+
+.pet-table {
+  width: 90%;
 }
 
 .pet-info {
-  width: 65%;
-  color: white;
-}
-
-.pet-info tr {
-  border: solid 1px orange;
+  width: 100%;
+  color: #001524;
 }
 
 .pet-info th {
-  text-align: left;
-  color: orange;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: #15616d;
+  color: #ffecd1;
   font-size: 1.2em;
+  line-height: 30px;
 }
 
 .pet-info td {
-  text-align: left;
   padding: 5px 15px;
+  font-size: 1.1em;
+}
+
+.pet-story {
+  width: 90%;
+}
+
+.pet-story p {
+  border: #15616d solid 3px;
+  border-radius: 10px;
+  padding: 30px;
+  text-align: justify;
+  font-size: 1.1em;
 }
 
 .end-page-btn {
@@ -286,6 +313,8 @@ nav ul li.active {
 }
 
 .end-page-btn button {
+  background-color: #78290f;
+  color: #ffecd1;
   margin: 20px;
 }
 

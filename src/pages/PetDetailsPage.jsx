@@ -35,21 +35,17 @@ export const PetDetailsPage = ({ pets, setPets }) => {
         setPets(ourOnePet.data);
         const id = ourOnePet.data.country;
 
-        console.log(`iddddds for country ${id}`);
-
         const getCountry = await axios.get(
           `http://localhost:5001/country/${id}`
         );
-        console.log(`response from coutry ${getCountry.data.name}`);
         setCountry(getCountry.data.name);
 
         const countryId = ourOnePet.data.city;
-        console.log("this is our city", countryId);
 
         const getCity = await axios.get(
           `http://localhost:5001/cities/${countryId}`
         );
-        console.log(`response from city ${getCity.data.name}`);
+
         setCity(getCity.data.name);
       } catch (err) {
         console.log(err);
@@ -57,6 +53,14 @@ export const PetDetailsPage = ({ pets, setPets }) => {
     };
     getOnePets();
   }, [petId]);
+
+  function adoptFees() {
+    if (pets.species === "Dog") {
+      return "250€";
+    } else {
+      return "200€";
+    }
+  }
 
   if (!pets) {
     return <h1>Loading...</h1>;
@@ -66,42 +70,67 @@ export const PetDetailsPage = ({ pets, setPets }) => {
     <div className="petDetailPage">
       <div className="details-card">
         <h1>Hello I'm {pets.pet_name} !</h1>
-        <img src={pets.thumbnail} alt={pets.pet_name} />
-        <h3>My informations</h3>
-        <table className="pet-info">
-          <tbody>
-            <tr>
-              <th>Breed</th>
-              <td>{pets.primary_breed}</td>
-              <th>Purebred</th>
-              <td>{pets.purebred}</td>
-            </tr>
-            <tr>
-              <th>Age </th>
-              <td>{!pets.age ? pets.pet_age : pets.age} year old</td>
-              <th>Hair length </th>
-              <td>{pets.hair_length}</td>
-            </tr>
-            <tr>
-              <th>Sex </th>
-              <td>{pets.sex}</td>
-              <th>I'm from</th>
-              <td>{country}</td>
-            </tr>
-            <tr>
-              <th>Size </th>
-              <td>{pets.size}</td>
-              <th>I live in</th>
-              <td>{city}</td>
-            </tr>
-            <tr>
-              <th>Color </th>
-              <td>{pets.color}</td>
-              <th>I'm needy </th>
-              <td>{pets.special_needs}</td>
-            </tr>
-          </tbody>
-        </table>
+        <div className="img-infobox">
+          <img src={pets.thumbnail} alt={pets.pet_name} />
+          <div className="info-box">
+            <h2>
+              Cared for by <strong>IronHack Ranch Animal Rescue</strong>
+            </h2>
+            <h4>Adoption process</h4>
+            <ol>
+              <li>Submit application</li>
+              <li>Meet the pet</li>
+              <li>Home check</li>
+            </ol>
+            <h4>Adoption fee : {adoptFees()}</h4>
+            <p>
+              This helps <strong>IronHack Ranch Rescue</strong> with pet care
+              costs.
+            </p>
+            <button>Get to know me ?</button>
+          </div>
+        </div>
+        <div className="pet-table">
+          <h3>My informations</h3>
+          <table className="pet-info">
+            <tbody>
+              <tr>
+                <th>Breed</th>
+                <td>{pets.primary_breed}</td>
+                <th>Purebred</th>
+                <td>{pets.purebred}</td>
+              </tr>
+              <tr>
+                <th>Age </th>
+                <td>{!pets.age ? pets.pet_age : pets.age} year old</td>
+                <th>Hair length </th>
+                <td>{pets.hair_length}</td>
+              </tr>
+              <tr>
+                <th>Sex </th>
+                <td>{pets.sex}</td>
+                <th>I'm from</th>
+                <td>{country}</td>
+              </tr>
+              <tr>
+                <th>Size </th>
+                <td>{pets.size}</td>
+                <th>I live in</th>
+                <td>{city}</td>
+              </tr>
+              <tr>
+                <th>Color </th>
+                <td>{pets.color}</td>
+                <th>I'm needy </th>
+                <td>{pets.special_needs}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div className="pet-story">
+          <h3>My story</h3>
+          <p>{pets.story}</p>
+        </div>
         <div className="end-page-btn">
           <Link to={`/pets/updatepet/${pets.id}`}>
             <button>Update informations</button>
