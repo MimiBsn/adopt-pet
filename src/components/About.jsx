@@ -5,7 +5,7 @@ export const About = () => {
         <div className="about-intro">
           <h1>
             Welcome to <strong>Furry Friends Finder</strong>, your go-to
-            destination for finding your perfect furry companion ! 🩷
+            destination for finding your perfect furry companion ! 💝
           </h1>
           <article>
             <h2>

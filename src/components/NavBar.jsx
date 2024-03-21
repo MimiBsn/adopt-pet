@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom"; // Import Link for navigation
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import Login from "./Login";
 import Signup from "./SignUp";
+import ProfileIcon from "../assets/ProfileIcon.png";
 
 const NavBar = () => {
   const [activeTab, setActiveTab] = useState("adopt");
   const [showLoginModal, setShowLoginModal] = useState(false);
-  const [showSignupnModal, setShowSignupnModal] = useState(false);
+  const [showSignupModal, setShowSignupModal] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // New state for tracking login status
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
@@ -18,13 +20,22 @@ const NavBar = () => {
   };
 
   const toggleSignUpModal = () => {
-    setShowSignupnModal(!showSignupnModal);
+    setShowSignupModal(!showSignupModal);
   };
 
   const toggleModal = () => {
     setShowLoginModal(false);
-    setShowSignupnModal(false);
+    setShowSignupModal(false);
+    setIsLoggedIn(true);
+    console.log(`islogin ${isLoggedIn}`);
   };
+
+  // const handleLogin = () => {
+  //   // Logic for handling successful login
+  //   setIsLoggedIn(true);
+  //   toggleModal();
+  //   console.log(`islogin ${isLoggedIn}`);
+  // };
 
   return (
     <div className="navbar-container">
@@ -57,20 +68,27 @@ const NavBar = () => {
             className={activeTab === "about" ? "active" : ""}
             onClick={() => handleTabClick("about")}
           >
-            <Link to="/about">About </Link>
+            <Link to="/about">About</Link>
           </li>
-          <div className="login-signup-buttons">
-            <button className="login-button" onClick={toggleLoginModal}>
-              Login
-            </button>
-            <button className="signup-button" onClick={toggleSignUpModal}>
-              Sign Up
-            </button>
-          </div>
+
+          {isLoggedIn ? (
+            <li>
+              <img src={ProfileIcon} className="profileIcon" />
+            </li>
+          ) : (
+            <>
+              <button className="login-button" onClick={toggleLoginModal}>
+                Login
+              </button>
+              <button className="signup-button" onClick={toggleSignUpModal}>
+                Sign Up
+              </button>
+            </>
+          )}
         </ul>
       </nav>
       {showLoginModal && <Login toggleModal={toggleModal} />}{" "}
-      {showSignupnModal && <Signup toggleModal={toggleModal} />}{" "}
+      {showSignupModal && <Signup toggleModal={toggleModal} />}{" "}
     </div>
   );
 };
