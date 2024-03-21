@@ -26,12 +26,12 @@ Possibility to 'rehome' your pet (under conditions) instead of abandoning him/he
 
 ## Backlog Functionalities
 
-**Responsive design** to be able to adopt even on smartphones.
+**Responsive design** to be able to adopt even on smartphones.<br>
 **'Adopted'** When a pet is adopted, a card saying 'adopted' is going to be displayed on the pet card, waiting for the informations to be deleted.
 
 ## Technologies used
 
-**Frontend end** : React Js + CSS + Axios.
+**Frontend end** : React Js + CSS + Axios.<br>
 **Backend** : Mock API.
 
 ## Links
