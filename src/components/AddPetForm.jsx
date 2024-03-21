@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import cool_cat from "../assets/cool_cat.jpg";
-import cat from "../assets/cat.jpg";
 import cat_girl from "../assets/cat_girl.jpg";
 
 const AddPetForm = () => {
