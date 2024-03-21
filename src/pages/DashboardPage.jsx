@@ -61,7 +61,7 @@ export const DashboardPage = ({ pets, setPets }) => {
         </div>
       </div>
       <div className="filter-section">
-        <h1>Choose Your Furry Friend Now !</h1>
+        <h1 id="filter">Choose Your Furry Friend Now !</h1>
         <select
           value={ageFilter}
           onChange={(e) => setAgeFilter(e.target.value)}
@@ -98,7 +98,7 @@ export const DashboardPage = ({ pets, setPets }) => {
           onChange={(e) => setSearchQuery(e.target.value)}
         />
       </div>
-      <div className="dashboard-page">
+      <div id="dashboard-page">
         {pets.length > 1 &&
           pets.map((onePet) => {
             return (
