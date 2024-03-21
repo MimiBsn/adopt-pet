@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import logo from "../assets/dog.avif";
@@ -66,12 +67,12 @@ export const PetAdvice = () => {
     
 
     <div class="image-container">
-            <button class="prev" onclick={handleSliderPrev}>❮</button>
+            <button class="prev" onclick={handleSliderPrev}>▼</button>
             <img src={logo} alt="logo" width={300} height={300} className='image'/>
             <img src={image} alt="image" width={300} height={300} className='image' />
             <img src={picture} alt="picture" width={300} height={300} className='image' />
             <img src={pics} alt="picture" width={300} height={300} className='image' />
-            <button class="next" onclick={handleSliderNext}>❯</button>
+            <button class="next" onclick={handleSliderNext}>▲</button>
     </div>
      
     <section>
