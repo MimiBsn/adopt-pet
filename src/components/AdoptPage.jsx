@@ -6,7 +6,7 @@ import pics from "../assets/cute-pet.jpeg";
 export default function AdoptPage() {
   const nav = useNavigate();
   const handleBack = () => {
-    nav("/#dashboard-page");
+    nav("/");
   };
   return (
     <>
