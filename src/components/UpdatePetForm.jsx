@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import two_dogs from "../assets/two_dogs.jpg";
-import cat_eyes from "../assets/cat_eyes.jpg";
 
 const UpdatePetForm = () => {
   const [pet, setPet] = useState("");
