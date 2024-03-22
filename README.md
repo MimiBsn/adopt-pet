@@ -11,7 +11,7 @@ Possibility to 'rehome' your pet (under conditions) instead of abandoning him/he
 
 ## User Stories
 
-**NOTE -** On the webiste you'll be able to:
+**On the webiste you'll be able to:** 
 
 - **Dashboard** - Display all the pet available to adoption.
 - **Filter** - You can filter the pet display by species, age and location. You can even type by their name !
@@ -27,7 +27,8 @@ Possibility to 'rehome' your pet (under conditions) instead of abandoning him/he
 ## Backlog Functionalities
 
 **Responsive design** to be able to adopt even on smartphones.<br>
-**'Adopted'** When a pet is adopted, a card saying 'adopted' is going to be displayed on the pet card, waiting for the informations to be deleted.
+**'Adopted'** When a pet is adopted, a card saying 'adopted' is going to be displayed on the pet card, waiting for the informations to be deleted.<br>
+**Get to know me** The 'Get to know me' button will lead to a contact form to show your interest to meet the pet to the team.
 
 ## Technologies used
 
