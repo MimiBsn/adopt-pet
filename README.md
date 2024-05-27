@@ -43,7 +43,6 @@ Possibility to 'rehome' your pet (under conditions) instead of abandoning him/he
 
 [Alexandra Busson](https://github.com/MimiBsn/)
 
-[Gloria Nwaigba](https://github.com/Nwaigba66)
 
 ### Project
 
