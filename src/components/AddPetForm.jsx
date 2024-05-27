@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import cool_cat from "../assets/cool_cat.jpg";
-import cat_girl from "../assets/cat_girl.jpg";
 
 const AddPetForm = () => {
   const [petName, setPetName] = useState("");
@@ -162,10 +160,6 @@ const AddPetForm = () => {
 
   return (
     <div className="add-container">
-      <div className="left-image">
-        <img src={cool_cat} alt="Left Image" />
-      </div>
-
       <div className="add-pet-form-container">
         <h2>Fill Your Pet Information here</h2>
         <form onSubmit={handleSubmit}>
@@ -478,10 +472,6 @@ const AddPetForm = () => {
             Add Pet
           </button>
         </form>
-      </div>
-
-      <div className="right-image">
-        <img src={cat_girl} alt="Right Image" />
       </div>
     </div>
   );

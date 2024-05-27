@@ -46,12 +46,7 @@ const NavBar = () => {
       </Link>
       <nav>
         <ul>
-          <li
-            className={activeTab === "adopt" ? "active" : ""}
-            onClick={() => handleTabClick("adopt")}
-          >
-            <Link to="/adopt">Adopt a Pet</Link>
-          </li>
+          <li></li>
           <li
             className={activeTab === "petAdvice" ? "active" : ""}
             onClick={() => handleTabClick("petAdvice")}
@@ -70,7 +65,10 @@ const NavBar = () => {
           >
             <Link to="/about">About</Link>
           </li>
-
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
           {isLoggedIn ? (
             <li>
               <img src={ProfileIcon} className="profileIcon" />

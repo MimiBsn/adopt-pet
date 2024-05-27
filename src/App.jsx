@@ -10,7 +10,6 @@ import UpdatePetForm from "./components/UpdatePetForm.jsx";
 import { NotFound } from "./components/NotFound.jsx";
 import { About } from "./components/About.jsx";
 import { PetAdvice } from "./components/PetAdvice.jsx";
-import AdoptPage from "./components/AdoptPage.jsx";
 
 function App() {
   const [pets, setPets] = useState(null);
@@ -30,7 +29,6 @@ function App() {
         />
         <Route path="/pet-advice" element={<PetAdvice />}></Route>
 
-        <Route path="/adopt" element={<AdoptPage />}></Route>
         <Route
           path="/pets/updatepet/:petId"
           element={<UpdatePetForm pets={pets} setPets={setPets} />}

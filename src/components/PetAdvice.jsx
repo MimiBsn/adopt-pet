@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/dog.avif";
 import image from "../assets/cute.avif";
-import picture from "../assets/cat-dog.avif";
 import pics from "../assets/french-bull.avif";
 
 const adviceList = [
@@ -74,13 +73,13 @@ export const PetAdvice = () => {
           height={400}
           className="image"
         />
-        <img
+        {/* <img
           src={picture}
           alt="picture"
           width={400}
           height={400}
           className="image"
-        />
+        /> */}
         <img
           src={pics}
           alt="picture"
