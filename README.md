@@ -1,6 +1,6 @@
 # Furry Friends Finder
 
-## [See the Website!](https://furryfriendsfinder.netlify.app/)
+## [See the Website!](https://furryfriendsfinder-remastered.netlify.app/)
 
 ![App Logo](https://furryfriendsfinder.netlify.app/assets/logo-BwRZ9Gpa.png)
 
@@ -46,9 +46,9 @@ Possibility to 'rehome' your pet (under conditions) instead of abandoning him/he
 
 ### Project
 
-[Fronted Repository Link](https://github.com/shaza-kashlan/adopt-pet.git)
+[Original Fronted Repository Link](https://github.com/shaza-kashlan/adopt-pet.git)
 
-[Fronted Deploy Link](https://furryfriendsfinder.netlify.app/)
+[Original Fronted Deploy Link](https://furryfriendsfinder.netlify.app/)
 
 [Backend Repository Link](https://github.com/MimiBsn/adopt-pet-backend)
 
